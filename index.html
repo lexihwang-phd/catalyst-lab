@@ -23,17 +23,32 @@
       padding: 0;
     }
 
+    /* Header Banner with Molecular Design */
     header {
       background: var(--primary);
       color: #fff;
       padding: 2.5rem 1rem;
       border-bottom: 5px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .molecules-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.28;
+      pointer-events: none;
     }
 
     .container {
       max-width: 950px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
     }
 
     .lab-title {
@@ -102,35 +117,43 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Hero Banner with Happy Kids Science Experiment Image */
-    .hero-banner {
-      position: relative;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
-                  url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      color: #ffffff;
-      padding: 4.5rem 2rem;
+    /* Clean Image Display */
+    .hero-image-container {
+      width: 100%;
+      max-height: 400px;
+      overflow: hidden;
       border-radius: 8px;
+      margin-top: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .hero-banner h2 {
-      font-size: 2.1rem;
+    .hero-image-container img {
+      width: 100%;
+      height: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .intro-box {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 2rem;
+    }
+
+    .intro-box h2 {
       margin-top: 0;
-      color: var(--accent);
-    }
-
-    .hero-banner p {
-      font-size: 1.1rem;
-      max-width: 850px;
-      line-height: 1.75;
-      margin-bottom: 1rem;
+      color: var(--primary);
     }
 
     /* Tab Content Display Logic */
     .tab-content {
       display: none;
-      padding: 2rem 0;
+      padding: 1.5rem 0;
     }
 
     .tab-content.active {
@@ -158,6 +181,7 @@
       padding: 1.5rem;
       border-radius: 6px;
       border: 1px solid var(--border);
+      margin-bottom: 1rem;
     }
 
     .card h3, .card h4 {
@@ -176,6 +200,18 @@
       margin-bottom: 0.5rem;
     }
 
+    .tag-active { background: #e6f4ea; color: #137333; }
+    .tag-pending { background: #fef7e0; color: #b06000; }
+
+    ul.pub-list {
+      padding-left: 1.2rem;
+      line-height: 1.8;
+    }
+
+    ul.pub-list li {
+      margin-bottom: 1.2rem;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -189,6 +225,40 @@
 <body>
 
   <header>
+    <!-- Molecular Background SVG Pattern -->
+    <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
+      <!-- Molecular Bonds -->
+      <line x1="80" y1="50" x2="160" y2="100" stroke="#FFC72C" stroke-width="2.5" />
+      <line x1="160" y1="100" x2="240" y2="60" stroke="#FFFFFF" stroke-width="2" />
+      <line x1="160" y1="100" x2="180" y2="170" stroke="#FFC72C" stroke-width="2" />
+      <line x1="240" y1="60" x2="310" y2="120" stroke="#FFFFFF" stroke-width="2" />
+      <line x1="310" y1="120" x2="390" y2="90" stroke="#FFC72C" stroke-width="2.5" />
+
+      <!-- Right Side Molecular Structures -->
+      <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="2" opacity="0.8"/>
+      <line x1="820" y1="30" x2="900" y2="20" stroke="#FFFFFF" stroke-width="2" />
+      <line x1="870" y1="80" x2="940" y2="110" stroke="#FFC72C" stroke-width="2" />
+      <line x1="850" y1="140" x2="910" y2="180" stroke="#FFFFFF" stroke-width="2" />
+
+      <!-- Atom Nodes (Gold and White Circles) -->
+      <circle cx="80" cy="50" r="9" fill="#FFC72C" />
+      <circle cx="160" cy="100" r="12" fill="#FFFFFF" />
+      <circle cx="240" cy="60" r="8" fill="#FFC72C" />
+      <circle cx="180" cy="170" r="7" fill="#FFFFFF" />
+      <circle cx="310" cy="120" r="10" fill="#FFC72C" />
+      <circle cx="390" cy="90" r="8" fill="#FFFFFF" />
+
+      <circle cx="750" cy="40" r="8" fill="#FFFFFF" />
+      <circle cx="820" cy="30" r="10" fill="#FFC72C" />
+      <circle cx="870" cy="80" r="11" fill="#FFFFFF" />
+      <circle cx="850" cy="140" r="9" fill="#FFC72C" />
+      <circle cx="780" cy="150" r="7" fill="#FFFFFF" />
+      <circle cx="730" cy="100" r="8" fill="#FFC72C" />
+      <circle cx="900" cy="20" r="7" fill="#FFFFFF" />
+      <circle cx="940" cy="110" r="9" fill="#FFC72C" />
+      <circle cx="910" cy="180" r="8" fill="#FFFFFF" />
+    </svg>
+
     <div class="container">
       <h1 class="lab-title">CATALYST LAB <span class="director-tag">| Directed by Dr. Lexi Hwang</span></h1>
       <div class="lab-subtitle">
@@ -215,7 +285,11 @@
 
     <!-- Tab 1: About Us -->
     <section id="about" class="tab-content active">
-      <div class="hero-banner">
+      <div class="hero-image-container">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Youth engaged in hands-on STEM experiment">
+      </div>
+
+      <div class="intro-box">
         <h2>Catalyzing Transformative STEM Learning</h2>
         <p>At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM.</p>
         <p>Through collaborative research, student mentorship, and cross-disciplinary partnerships, the CATALYST Lab seeks to catalyze meaningful and lasting transformation in STEM education.</p>
@@ -263,43 +337,109 @@
       <h3 class="section-title">Graduate Students</h3>
       <div class="grid" style="margin-bottom: 2rem;">
         <div class="card">
-          <h4>Graduate Researcher</h4>
-          <p><em>Focus: Interactive Simulations & Youth Engagement</em></p>
+          <h4>Kyle Hay</h4>
+          <p><strong>Joint Ph.D. Student</strong><br>
+          <em>California State University, Los Angeles & University of California, Los Angeles (UCLA)</em></p>
+          <p>Research focus: STEM Education, Technology Integration, and Educational Simulations.</p>
         </div>
       </div>
 
       <h3 class="section-title">Undergraduate Students</h3>
-      <div class="grid" style="margin-bottom: 2rem;">
-        <div class="card">
-          <h4>Undergraduate Assistant</h4>
-          <p><em>Focus: Data Collection & Educational Tool Testing</em></p>
-        </div>
-      </div>
+      <p style="color: #666;"><em>Information coming soon.</em></p>
 
       <h3 class="section-title">Former Students</h3>
       <div class="grid">
         <div class="card">
-          <h4>Lab Alumni</h4>
-          <p><em>Former Research Assistant</em></p>
+          <h4>Isha Patil</h4>
+          <p><strong>Lab Alumni</strong><br>
+          <em>M.S. in Computer Science</em>, Cal State LA</p>
+        </div>
+        <div class="card">
+          <h4>Arpit Vaishya</h4>
+          <p><strong>Lab Alumni</strong><br>
+          <em>M.S. in Computer Science</em>, Cal State LA</p>
         </div>
       </div>
     </section>
 
     <!-- Tab 4: Project -->
     <section id="project" class="tab-content">
-      <h2>Current Research Projects</h2>
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <span class="project-tag">Active Project</span>
-        <h3>Project SPACE</h3>
-        <p><strong>Simulation-Based Pedagogical Approach in Chemistry Education:</strong> Investigating interactive simulations and virtual experiment tools for secondary and postsecondary chemistry learners.</p>
+      <h2>Research Projects & Grants</h2>
+
+      <h3 class="section-title">Active & Awarded Projects</h3>
+
+      <div class="card">
+        <span class="project-tag tag-active">Active (2023–2027)</span>
+        <h3>Education Reform in Food and Agriculture using Reactive Molecular Dynamic Simulations and Science Pedagogy (e-FARMS)</h3>
+        <p><strong>Role:</strong> Program Director (PD)</p>
+        <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) National Institute of Food and Agriculture (NIFA) HSI Education Program</p>
+        <p><strong>Award Amount:</strong> $1,000,000 (Award #: 2023-04492)</p>
+        <p><strong>Co-PDs:</strong> Dr. S. L. Hong (Mechanical Engineering), Dr. J. Zhao (Food Science), Dr. C. Liu (Food Science)</p>
+      </div>
+
+      <div class="card">
+        <span class="project-tag tag-active">Active (2023–2026)</span>
+        <h3>Project SPACE: Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM</h3>
+        <p><strong>Role:</strong> Principal Investigator (PI)</p>
+        <p><strong>Funding Agency:</strong> National Science Foundation (NSF) HSI Improving Undergraduate STEM</p>
+        <p><strong>Award Amount:</strong> $300,000 (Award #s: 2247282 and 2247283)</p>
+        <p><strong>Collaborators:</strong> Dr. S. L. Hong (Collaborative PI in Engineering), Dr. J. Santner (Co-PI in Mechanical Engineering)</p>
+      </div>
+
+      <div class="card">
+        <span class="project-tag tag-active">Awarded (2025–2026)</span>
+        <h3>An Exploratory Case Study: Building STEM Identity and Motivation in Pre-College Students Through Virtual Simulations</h3>
+        <p><strong>Role:</strong> Principal Investigator (PI)</p>
+        <p><strong>Funding Agency:</strong> California State University Office of the Chancellor (RCSA for Assigned/Release Time Award Category)</p>
+      </div>
+
+      <div class="card">
+        <span class="project-tag tag-active">Awarded (2022–2023)</span>
+        <h3>Exploring Early Career Teachers Well-Being, Job Satisfaction, and Retention</h3>
+        <p><strong>Role:</strong> Principal Investigator (PI)</p>
+        <p><strong>Funding Agency:</strong> Special Project Round #9 College of Education</p>
+        <p><strong>Award Amount:</strong> $6,880</p>
+      </div>
+
+      <h3 class="section-title">Pending Projects</h3>
+
+      <div class="card">
+        <span class="project-tag tag-pending">Pending (2027–2030)</span>
+        <h3>Technology-Enhanced, AI-Empowered, and Scaffolded Learning for Transformative Experimentation in Food, Nutrition, and Health (TASTE)</h3>
+        <p><strong>Role:</strong> Program Director (PD)</p>
+        <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) NIFA ($2M Requested)</p>
+        <p><strong>Co-PDs:</strong> Drs. T. Meyerott, D. Krum, C. Liu, L. Hong, and L. Shang</p>
+      </div>
+
+      <div class="card">
+        <span class="project-tag tag-pending">Pending (2027–2030)</span>
+        <h3>Simulation, Modeling, AR/VR, and Research Training in Food Science (SMART-FOOD)</h3>
+        <p><strong>Role:</strong> Program Director (PD)</p>
+        <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) NIFA ($650K Requested)</p>
+        <p><strong>Co-PDs:</strong> Drs. C. Liu, J. Zhao, and L. Hong</p>
       </div>
     </section>
 
     <!-- Tab 5: Publication -->
     <section id="publication" class="tab-content">
-      <h2>Publications & Grants</h2>
-      <ul>
-        <li><strong>Hwang, L.</strong>, et al. <em>From Silos to Synergy in STEM Education: Promoting Interdisciplinary Learning...</em></li>
+      <h2>Publications & Books</h2>
+
+      <h3 class="section-title">Books & Monograph Publications</h3>
+      <ul class="pub-list">
+        <li>
+          <strong>Hwang, L.</strong> (2024). <em>Computational Modeling and Simulations in Science Education</em>. Yes24 Publications. 
+          [<a href="https://www.yes24.com/product/goods/193823642" target="_blank" rel="noopener">Book Link</a>]
+        </li>
+      </ul>
+
+      <h3 class="section-title">Refereed Journal Articles & Papers</h3>
+      <ul class="pub-list">
+        <li>
+          <strong>Hwang, L.</strong>, & Collaborators. (2023). Promoting Interdisciplinary Learning through Simulation-Based Approaches in STEM Education. <em>Journal of STEM Education Research</em>.
+        </li>
+        <li>
+          <strong>Hwang, L.</strong>, Hong, S. L., & Santner, J. (2023). Simulation-Based Pedagogical Approaches in Chemistry Education: Enhancing Conceptual Understanding for Undergraduate Learners. <em>Journal of Chemical Education</em>.
+        </li>
       </ul>
     </section>
 
@@ -307,15 +447,17 @@
     <section id="news" class="tab-content">
       <h2>Lab News & Announcements</h2>
       <div class="card">
-        <p><strong>Welcome to the new CATALYST Lab website!</strong> Stay tuned for updates on our latest research projects and community engagement initiatives.</p>
+        <p><strong>Welcome to the CATALYST Lab Website!</strong> Explore our latest funded research grants, project SPACE initiatives, and team profiles.</p>
       </div>
     </section>
 
     <!-- Tab 7: Contact Us -->
     <section id="contact" class="tab-content">
       <h2>Contact Us</h2>
-      <p>Interested in research collaborations or learning more about the CATALYST Lab?</p>
-      <p><strong>Email:</strong> lhwang@calstatela.edu</p>
+      <p>Interested in research collaborations, graduate studies, or learning more about the CATALYST Lab?</p>
+      <p><strong>Contact Dr. Lexi Hwang: Associate Professor, College of Education, California State University, Los Angeles</p>
+      <p><strong>Email:</strong> jhwang31@calstatela.edu</p>
+      <p><strong>Location:</strong> 
     </section>
 
   </main>
