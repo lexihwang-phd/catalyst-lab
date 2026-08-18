@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CATALYST Lab | Cal State LA</title>
+  <style>
+    :root {
+      --primary: #000000; /* Cal State LA Black */
+      --accent: #FFC72C;  /* Cal State LA Gold */
+      --bg: #FAFAFA;
+      --text: #222222;
+      --card-bg: #FFFFFF;
+      --border: #E5E5E5;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 2.5rem 1rem;
+      border-bottom: 5px solid var(--accent);
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .lab-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .lab-subtitle {
+      color: var(--accent);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .institution {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    nav {
+      background: #111;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin-right: 1.8rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 6px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: #eee;
+      color: #333;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="lab-title">CATALYST LAB</h1>
+      <div class="lab-subtitle">Collaborative Advancement of Teaching, Access, and Learning for Youth STEM Transformation</div>
+      <div class="institution">College of Education | California State University, Los Angeles</div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#research">Research & Initiatives</a>
+      <a href="#pi">Principal Investigator</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="about">
+      <div class="hero">
+        <h2>About the CATALYST Lab</h2>
+        <p>The <strong>CATALYST Lab</strong> at California State University, Los Angeles serves as a research hub dedicated to driving STEM education transformation. We examine how innovative teaching strategies, educational technologies, and collaborative learning environments broaden STEM access and improve learning outcomes for youth and pre-service educators.</p>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research Pillars</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="project-tag">Educational Tech</span>
+          <h3>Simulations & Digital Learning</h3>
+          <p>Investigating how dynamic visual tools, interactive simulations, and modeling software enhance conceptual understanding and engagement in STEM disciplines.</p>
+        </div>
+        <div class="card">
+          <span class="project-tag">Pedagogy & Access</span>
+          <h3>Inclusive Teaching Methods</h3>
+          <p>Developing evidence-based instructional frameworks that foster collaborative learning, inquiry-based problem solving, and equitable STEM participation.</p>
+        </div>
+        <div class="card">
+          <span class="project-tag">Teacher Preparation</span>
+          <h3>Educator Growth & Development</h3>
+          <p>Equipping pre-service and in-service educators with modern pedagogical tools, technology integration frameworks, and active learning strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pi">
+      <h2>Principal Investigator</h2>
+      <div class="card">
+        <h3>Lexi Hwang, Ph.D.</h3>
+        <p><strong>Faculty Researcher</strong> | College of Education<br>
+        <em>California State University, Los Angeles</em></p>
+        <p>Dr. Hwang’s research focuses on STEM education, educational technology, and instructional modeling. Her work examines how innovative teaching practices and interactive digital tools transform classroom learning experiences.</p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Selected Publications & Projects</h2>
+      <ul>
+        <li><strong>Hwang, L.</strong>, et al. <em>From Silos to Synergy in STEM Education: Promoting Interdisciplinary Learning...</em></li>
+        <li><strong>Project SPACE:</strong> <em>Simulation-Based Pedagogical Approach in Chemistry Education.</em></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Interested in research collaborations or learning more about the CATALYST Lab?</p>
+      <p><strong>Email:</strong> lhwang@calstatela.edu<br>
+      <strong>Location:</strong> College of Education, California State University, Los Angeles</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; CATALYST Lab | California State University, Los Angeles</p>
+    </div>
+  </footer>
+
+</body>
+</html>
