@@ -23,7 +23,7 @@
       padding: 0;
     }
 
-    /* Header Banner with All-Gold Glowing Animated Molecules & Light Flash Sprinkles */
+    /* Header Banner with All-Gold Glowing Animated Molecules & Light Flares */
     header {
       background: var(--primary);
       color: #fff;
@@ -39,11 +39,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.85;
+      opacity: 0.9;
       pointer-events: none;
     }
 
-    /* Floating, Glow & Sparkle Animations */
+    /* Animations for Molecules & Starburst Lens Flares */
     @keyframes floatLeft {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-8px) rotate(3deg); }
@@ -59,9 +59,15 @@
       50% { filter: drop-shadow(0 0 16px rgba(255, 230, 120, 1)); }
     }
 
-    @keyframes sparkleFlash {
-      0%, 100% { opacity: 0.2; transform: scale(0.6); }
-      50% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 10px #ffffff); }
+    @keyframes sparkleBurst {
+      0%, 100% { opacity: 0.3; transform: scale(0.7) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.3) rotate(15deg); filter: drop-shadow(0 0 12px #ffffff); }
+    }
+
+    @keyframes stardustFloat {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+      50% { transform: translateY(-6px) scale(1.2); opacity: 0.9; }
+      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
     }
 
     .mol-group-left {
@@ -74,15 +80,20 @@
       transform-origin: center;
     }
 
-    .sparkle {
-      fill: #FFFFFF;
-      animation: sparkleFlash 3s ease-in-out infinite;
+    .starburst {
+      animation: sparkleBurst 3.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
     }
 
-    .s1 { animation-delay: 0s; }
-    .s2 { animation-delay: 0.8s; }
-    .s3 { animation-delay: 1.5s; }
-    .s4 { animation-delay: 2.2s; }
+    .stardust {
+      animation: stardustFloat 4s ease-in-out infinite;
+    }
+
+    .d1 { animation-delay: 0s; }
+    .d2 { animation-delay: 0.8s; }
+    .d3 { animation-delay: 1.6s; }
+    .d4 { animation-delay: 2.4s; }
 
     .container {
       max-width: 950px;
@@ -472,6 +483,14 @@
       display: block;
     }
 
+    .news-flyer-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
     .email-link {
       color: var(--primary);
       font-weight: 700;
@@ -495,7 +514,7 @@
 <body>
 
   <header>
-    <!-- All-Gold Animated SVG Molecular Pattern with Glowing Finish & Light Sprinkles -->
+    <!-- SVG Pattern with Realistic Starburst Lens Flares & Stardust -->
     <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
       <defs>
         <radialGradient id="goldGlow" cx="35%" cy="35%" r="65%">
@@ -503,15 +522,48 @@
           <stop offset="50%" stop-color="#FFC72C" />
           <stop offset="100%" stop-color="#B38200" />
         </radialGradient>
+        <radialGradient id="starCenter" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+          <stop offset="30%" stop-color="#FFF5B8" stop-opacity="0.9" />
+          <stop offset="70%" stop-color="#FFC72C" stop-opacity="0.4" />
+          <stop offset="100%" stop-color="#FFC72C" stop-opacity="0" />
+        </radialGradient>
       </defs>
 
-      <!-- Light Flash Sprinkles -->
-      <path d="M 100,30 L 102,37 L 109,39 L 102,41 L 100,48 L 98,41 L 91,39 L 98,37 Z" class="sparkle s1" opacity="0.8" />
-      <path d="M 450,150 L 452,157 L 459,159 L 452,161 L 450,168 L 448,161 L 441,159 L 448,157 Z" class="sparkle s2" opacity="0.9" />
-      <path d="M 600,25 L 602,32 L 609,34 L 602,36 L 600,43 L 598,36 L 591,34 L 598,32 Z" class="sparkle s3" opacity="0.75" />
-      <path d="M 880,160 L 882,167 L 889,169 L 882,171 L 880,178 L 878,171 L 871,169 L 878,167 Z" class="sparkle s4" opacity="0.85" />
+      <!-- Realistic Multi-Ray Starburst Lens Flares -->
+      <g class="starburst d1" transform="translate(180, 45)">
+        <circle cx="0" cy="0" r="28" fill="url(#starCenter)" />
+        <path d="M-60,0 L60,0 M0,-60 L0,60 M-35,-35 L35,35 M-35,35 L35,-35" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9" />
+        <path d="M-90,0 L90,0 M0,-90 L0,90" stroke="#FFD866" stroke-width="0.8" opacity="0.6" />
+      </g>
 
-      <!-- Left Molecular Complex -->
+      <g class="starburst d2" transform="translate(520, 130)">
+        <circle cx="0" cy="0" r="35" fill="url(#starCenter)" />
+        <path d="M-80,0 L80,0 M0,-80 L0,80 M-45,-45 L45,45 M-45,45 L45,-45" stroke="#FFFFFF" stroke-width="2" opacity="0.95" />
+        <path d="M-110,0 L110,0 M0,-110 L0,110" stroke="#FFE599" stroke-width="1" opacity="0.7" />
+      </g>
+
+      <g class="starburst d3" transform="translate(820, 55)">
+        <circle cx="0" cy="0" r="30" fill="url(#starCenter)" />
+        <path d="M-70,0 L70,0 M0,-70 L0,70 M-40,-40 L40,40 M-40,40 L40,-40" stroke="#FFFFFF" stroke-width="1.8" opacity="0.9" />
+      </g>
+
+      <!-- Shimmering Stardust Wave -->
+      <g class="stardust d1">
+        <circle cx="80" cy="120" r="2" fill="#FFFFFF" opacity="0.8" />
+        <circle cx="120" cy="140" r="1.5" fill="#FFE599" opacity="0.9" />
+        <circle cx="240" cy="30" r="2.5" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="310" cy="160" r="1.8" fill="#FFF5B8" opacity="0.7" />
+        <circle cx="430" cy="70" r="2" fill="#FFFFFF" opacity="0.8" />
+        <circle cx="490" cy="110" r="1.2" fill="#FFE599" opacity="0.85" />
+        <circle cx="610" cy="160" r="2.2" fill="#FFFFFF" opacity="0.9" />
+        <circle cx="680" cy="40" r="1.5" fill="#FFF5B8" opacity="0.75" />
+        <circle cx="750" cy="120" r="2" fill="#FFFFFF" opacity="0.85" />
+        <circle cx="890" cy="140" r="1.8" fill="#FFE599" opacity="0.9" />
+        <circle cx="940" cy="60" r="2.5" fill="#FFFFFF" opacity="0.9" />
+      </g>
+
+      <!-- Left Molecular Structure -->
       <g class="mol-group-left">
         <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="220" y2="50" stroke="#FFD866" stroke-width="3" stroke-linecap="round" />
@@ -651,12 +703,18 @@
           <em>California State University, Los Angeles & University of California, Los Angeles (UCLA)</em></p>
           <p>Research focus: STEM Education, Technology Integration, and Educational Simulations.</p>
         </div>
+        <div class="card">
+          <h4>Priyanshu Luhar</h4>
+          <p><strong>Graduate Student Researcher</strong><br>
+          <em>Department of Computer Science, California State University, Los Angeles</em></p>
+          <p>Research focus: Molecular dynamics simulations, AI in education, and web development.</p>
+        </div>
       </div>
 
       <h3 class="section-title">Undergraduate Students</h3>
       <p style="color: #666;"><em>Information coming soon.</em></p>
 
-      <h3 class="section-title">Former Students</h3>
+      <h3 class="section-title">Former Students & Alumni</h3>
       <div class="grid">
         <div class="card">
           <h4>Isha Patil</h4>
@@ -667,6 +725,11 @@
           <h4>Arpit Vaishya</h4>
           <p><strong>Lab Alumni</strong><br>
           <em>M.S. in Computer Science</em>, Cal State LA</p>
+        </div>
+        <div class="card">
+          <h4>Marlen</h4>
+          <p><strong>Lab Alumni</strong><br>
+          <em>Research Assistant Alumni</em>, Cal State LA</p>
         </div>
       </div>
     </section>
@@ -692,9 +755,15 @@
           <div id="space-team" class="sub-section card">
             <h3>Project Team & Affiliations</h3>
             <ul class="member-list">
-              <li>Dr. Lexi Hwang (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
-              <li>Dr. Leo Hong (Collaborative PI) – College of Engineering, California State University, Bakersfield</li>
-              <li>Dr. Jeffrey Santner (Co-PI) – Department of Mechanical Engineering, California State University, Los Angeles</li>
+              <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
+              <li><strong>Dr. Jeffrey Santner</strong> (Co-PI) – Associate Professor, Department of Mechanical Engineering, California State University, Los Angeles</li>
+              <li><strong>Dr. Leo Hong</strong> (Collaborative PI) – Clinical Assistant Professor, Department of Mechanical Engineering, Loyola Marymount University</li>
+            </ul>
+            <h4 style="margin-top: 1.2rem; margin-bottom: 0.4rem;">Student Researchers</h4>
+            <ul class="member-list">
+              <li><strong>Priyanshu Luhar</strong> – Current Graduate Student Researcher</li>
+              <li><strong>Arpit Vaishya</strong> – Lab Alumni</li>
+              <li><strong>Marlen</strong> – Lab Alumni</li>
             </ul>
           </div>
           <div id="space-outcomes" class="sub-section card">
@@ -730,10 +799,10 @@
           <div id="efarms-team" class="sub-section card">
             <h3>Project Team & Affiliations</h3>
             <ul class="member-list">
-              <li>Dr. Lexi Hwang (Program Director / PD) – College of Education, California State University, Los Angeles</li>
-              <li>Dr. Leo Hong (Co-PD) – Department of Mechanical Engineering, California State University, Los Angeles</li>
-              <li>Dr. Jing Zhao (Co-PD) – Department of Food Science, California State University, Los Angeles</li>
-              <li>Dr. Changqi Liu (Co-PD) – Department of Food Science, California State University, Los Angeles</li>
+              <li><strong>Dr. Lexi Hwang</strong> (Program Director / PD) – College of Education, California State University, Los Angeles</li>
+              <li><strong>Dr. Changqi Liu</strong> (Co-PD) – Associate Professor, School of Exercise and Nutritional Sciences, San Diego State University</li>
+              <li><strong>Dr. Jing Zhao</strong> (Co-PD) – Associate Professor, School of Exercise and Nutritional Sciences, San Diego State University</li>
+              <li><strong>Dr. Leo Hong</strong> (Co-PD) – Clinical Assistant Professor, Department of Mechanical Engineering, Loyola Marymount University</li>
             </ul>
           </div>
           <div id="efarms-outcomes" class="sub-section card">
@@ -821,7 +890,7 @@
         <li>Zobell, E.†, & *Hwang, J. (2020). An Examination of the Current Status of Paraprofessionals through their Lens: Role, Training, and Supervision. <em>Journal of Special Education Apprenticeship</em>, 9(1), 1-19.</li>
         <li>Hwang, J., & Riccomini, P. J. (2019). A Descriptive Analysis of the Error Patterns Observed in the Fraction Computation Solution Pathways of Students with and without Learning Disabilities. <em>Assessment for Effective Intervention</em>, 1-11. [<a href="https://doi.org/10.1177/1534508419872256" target="_blank" rel="noopener">DOI Link</a>]</li>
         <li>Hwang, J., Riccomini, P. J., & Morano, S. (2019). Examination of Cognitive Processes in Effective Algebra Problem-Solving Interventions for Secondary Students with Learning Disabilities. <em>Learning Disabilities: A Contemporary Journal</em>, 17(2).</li>
-        <li>Hwang, J., & Riccomini, P. J. (2019). Investigating the Relationship between Solution Pathway Preference and Accuracy of Adding Fractions for Students with Learning Disabilities. <em>British Journal of Special Education</em>, 34(1), 47-61. [<a href="https://doi.org/10.1111/1467-8578.12250" target="_blank" rel="noopener">DOI Link</a>]</li>
+        <li>Hwang, J., & Riccomini, P. J. (2019). Investigating the Relationship between Solution Pathway Preference and Accuracy of Accuracy of Adding Fractions for Students with Learning Disabilities. <em>British Journal of Special Education</em>, 34(1), 47-61. [<a href="https://doi.org/10.1111/1467-8578.12250" target="_blank" rel="noopener">DOI Link</a>]</li>
         <li>Hwang, J., & *Son, J. (2019). Understanding Provision Systems and Contemporary Needs of Early Childhood Inclusive Education from Teachers’ Perspectives. <em>Journal of Special Education & Rehabilitation Science</em>, 58(1), 285-325.</li>
         <li>Hwang, J., Riccomini, P. J., Hwang, S., & Morano, S. (2019). A Systematic Analysis of Experimental Studies Targeting Fractions for Students with Mathematics Difficulties. <em>Learning Disabilities Research & Practice</em>, 34(1), 1-15. [<a href="https://doi.org/10.1111/ldrp.12187" target="_blank" rel="noopener">DOI Link</a>]</li>
         <li>Morano, S., Ruiz, S., Hwang, J., Wertalik, J., Moeller, J., Karal, M. A., & Mulloy, A. (2017). Meta-Analysis of Single-Case Treatment Effects on Self-Injurious Behavior for Individuals with Autism and Intellectual Disabilities. <em>Autism & Developmental Language Impairments</em>, 2, 1-26. [<a href="https://doi.org/10.1177/2396941516688399" target="_blank" rel="noopener">DOI Link</a>]</li>
@@ -851,7 +920,25 @@
     <section id="news" class="tab-content">
       <h2>Lab News & Announcements</h2>
 
-      <!-- Interactive Accordion News Item 1 -->
+      <!-- Interactive Accordion News Item 1: USDA Recruitment -->
+      <div class="news-item">
+        <div class="news-header" onclick="toggleNews(this)">
+          <span class="news-title">Recruitment: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</span>
+          <span class="news-date">AUG 2026</span>
+        </div>
+        <div class="news-body">
+          <p>We are recruiting student fellows for the <strong>USDA-Funded STEM Education Research Training Fellowship</strong> for Fall 2026!</p>
+          <ul class="member-list">
+            <li><strong>About:</strong> Selected trainees will work closely with Dr. Lexi Hwang (PI) and an interdisciplinary team across Cal State LA, CSUB, SDSU, and LMU. The research examines molecular simulation-based learning in food science education and its impact on college students' STEM knowledge, identity, and motivation.</li>
+            <li><strong>Benefits:</strong> $1,000 stipend upon completion, Certificate of Research Training, and opportunities to co-author conference proceedings and journal publications.</li>
+            <li><strong>Commitment:</strong> ~3–5 hours per week during Fall 2026.</li>
+            <li><strong>Application Deadline:</strong> <strong>August 21, 2026</strong>. Submit CV and a 1-paragraph statement of interest to Dr. Lexi Hwang at <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a>.</li>
+          </ul>
+          <img src="STEM Ed Fellowship Recruitment.png" alt="USDA STEM Education Research Training Fellowship Recruitment Flyer" class="news-flyer-img" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <!-- Interactive Accordion News Item 2 -->
       <div class="news-item">
         <div class="news-header" onclick="toggleNews(this)">
           <span class="news-title">Welcome to the CATALYST Lab Website!</span>
@@ -862,7 +949,7 @@
         </div>
       </div>
 
-      <!-- Interactive Accordion News Item 2 -->
+      <!-- Interactive Accordion News Item 3 -->
       <div class="news-item">
         <div class="news-header" onclick="toggleNews(this)">
           <span class="news-title">New Journal Articles Accepted in JRST and JSE</span>
@@ -870,17 +957,6 @@
         </div>
         <div class="news-body">
           <p>Congratulations to Dr. Lexi Hwang and collaborators on their upcoming papers accepted in the <em>Journal of Research in Science Teaching</em> and the <em>Journal of Special Education</em>!</p>
-        </div>
-      </div>
-
-      <!-- Interactive Accordion News Item 3 -->
-      <div class="news-item">
-        <div class="news-header" onclick="toggleNews(this)">
-          <span class="news-title">USDA NIFA Grant Active Research Expansion</span>
-          <span class="news-date">JAN 2026</span>
-        </div>
-        <div class="news-body">
-          <p>The e-FARMS initiative continues its interdisciplinary collaboration, integrating reactive molecular dynamic simulations into food science and agricultural STEM pedagogy.</p>
         </div>
       </div>
     </section>
