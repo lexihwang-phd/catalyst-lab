@@ -1,4 +1,53 @@
+Edit
+Edit
+Edit
+Edit
+Edit
+for the image, i like this, but lets change font type to more catchy and styish
+Edit
+Pasted text(9).txt
+Document
+this is the current one. use the prior image instead of what's there. also for the banner, i want to have more lively molecular structure design in the banner - and suggest more stylish design
+Edit
+Edit
+i like image 2 but space between two line is too wide. make it narrowly tight
+Edit
+i said i like image 2 but psace bewteen two lines are too wide - why did you use uimage 1
+Edit
+Pasted text(10).txt
+Document
+this is curretn. i want to make molecular structure using white yellol and gran adn black only not colorful version, and also make it glow to make it fancy
+
+Yes — that palette will look much more sophisticated than the colorful molecular version.
+
+For your current header, I recommend:
+
+Black background as the base
+White atoms/bonds for brightness and contrast
+Cal State LA gold/yellow as the primary glowing accent
+Deep/muted green as a secondary accent
+Black/charcoal atoms with thin white or gold rims for depth
+Soft gold, white, and green outer glows, rather than rainbow colors
+A mixture of small and large atoms so the molecular structure feels more organic and dimensional
+Keep the molecules subtly floating/pulsing, but not moving enough to distract from “CATALYST LAB”
+
+Your current code uses cyan, red, blue, and gold gradients throughout the molecular banner. I would replace those with the restricted black + white + gold + green palette while retaining the molecular animation already built into the header.
+
+Visually, I would aim for something like:
+
+⚪—🟡—⚫—🟢—⚪
+with soft luminous halos around selected atoms, especially the gold atoms, and much thinner glowing bonds.
+
+I would also make the molecular network denser toward the left and right edges and lighter behind the CATALYST title. That will make it look fancy without competing with the text.
+
+This is a better direction for the overall CATALYST branding: academic + scientific + premium, rather than colorful/K–12-looking. 
+
+give me index that i can directly copy
+
+Yes. In your current index.html, replace the entire header section beginning with <header> and ending with </header> with the code below. It keeps your existing CATALYST wording but changes the molecular artwork to white + gold + green + charcoal/black, with glowing atoms and subtle movement.
+
 <header class="catalyst-header">
+
 
   <style>
     .catalyst-header {
@@ -14,6 +63,7 @@
       isolation: isolate;
     }
 
+
     /* Subtle atmospheric glow */
     .catalyst-header::before {
       content: "";
@@ -28,562 +78,680 @@
       pointer-events: none;
     }
 
+
     .catalyst-molecules {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: .88;
-      pointer-events: none;
-    }
-
-    .catalyst-header-content {
-      position: relative;
-      z-index: 5;
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .catalyst-main-title {
-      margin: 0;
-      color: #ffffff;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 850;
-      letter-spacing: 1.5px;
-      line-height: 1.1;
-      text-shadow:
-        0 0 8px rgba(255,255,255,.10),
-        0 3px 18px rgba(0,0,0,.8);
-    }
-
-    .catalyst-director {
-      display: inline-block;
-      margin-left: .65rem;
-      color: #FFC72C;
-      font-size: clamp(.95rem, 2vw, 1.15rem);
-      font-weight: 600;
-      letter-spacing: .3px;
-    }
-
-    .catalyst-subtitle {
-      margin-top: .8rem;
-      color: #e7e7e7;
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.6;
-      max-width: 850px;
-      text-shadow: 0 2px 8px rgba(0,0,0,.9);
-    }
-
-    .catalyst-subtitle b {
-      color: #FFC72C;
-      font-size: 1.14rem;
-      font-weight: 800;
-    }
-
-    /* Molecular motion */
-    @keyframes catalystFloatLeft {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-6px) rotate(1.2deg);
-      }
-    }
-
-    @keyframes catalystFloatRight {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(7px) rotate(-1.2deg);
-      }
-    }
-
-    @keyframes catalystGlow {
-      0%, 100% {
-        opacity: .78;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    .catalyst-mol-left {
-      animation: catalystFloatLeft 7s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    .catalyst-mol-right {
-      animation: catalystFloatRight 8s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    .catalyst-glow {
-      animation: catalystGlow 2.8s ease-in-out infinite;
-    }
-
-    @media (max-width: 700px) {
-      .catalyst-header {
-        padding: 2.4rem .5rem 2.3rem;
-      }
-
-      .catalyst-director {
-        display: block;
-        margin-left: 0;
-        margin-top: .45rem;
-      }
-
-      .catalyst-subtitle {
-        font-size: .93rem;
-      }
-    }
-  </style>
-
-
-  <!-- GLOWING MOLECULAR BACKGROUND -->
-
-  <svg
-    class="catalyst-molecules"
-    viewBox="0 0 1200 240"
-    preserveAspectRatio="xMidYMid slice"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-
-    <defs>
-
-      <!-- GOLD -->
-      <radialGradient id="catGold" cx="32%" cy="28%" r="72%">
-        <stop offset="0%" stop-color="#FFFBE6"/>
-        <stop offset="25%" stop-color="#FFE889"/>
-        <stop offset="60%" stop-color="#FFC72C"/>
-        <stop offset="100%" stop-color="#8A6500"/>
-      </radialGradient>
-
-      <!-- GREEN -->
-      <radialGradient id="catGreen" cx="32%" cy="28%" r="72%">
-        <stop offset="0%" stop-color="#EAF6E8"/>
-        <stop offset="30%" stop-color="#8DBE82"/>
-        <stop offset="65%" stop-color="#4B7F52"/>
-        <stop offset="100%" stop-color="#193A20"/>
-      </radialGradient>
-
-      <!-- WHITE -->
-      <radialGradient id="catWhite" cx="32%" cy="28%" r="72%">
-        <stop offset="0%" stop-color="#FFFFFF"/>
-        <stop offset="55%" stop-color="#F1F1F1"/>
-        <stop offset="100%" stop-color="#888888"/>
-      </radialGradient>
-
-      <!-- BLACK / CHARCOAL -->
-      <radialGradient id="catBlack" cx="30%" cy="25%" r="72%">
-        <stop offset="0%" stop-color="#777777"/>
-        <stop offset="40%" stop-color="#252525"/>
-        <stop offset="100%" stop-color="#030303"/>
-      </radialGradient>
-
-
-      <!-- GOLD GLOW -->
-      <filter id="catGoldGlow"
-              x="-100%" y="-100%"
-              width="300%" height="300%">
-        <feGaussianBlur stdDeviation="5" result="blur"/>
-        <feFlood flood-color="#FFC72C"
-                 flood-opacity=".95"
-                 result="glowColor"/>
-        <feComposite in="glowColor"
-                     in2="blur"
-                     operator="in"
-                     result="softGlow"/>
-        <feMerge>
-          <feMergeNode in="softGlow"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-
-      <!-- WHITE GLOW -->
-      <filter id="catWhiteGlow"
-              x="-100%" y="-100%"
-              width="300%" height="300%">
-        <feGaussianBlur stdDeviation="4" result="blur"/>
-        <feFlood flood-color="#FFFFFF"
-                 flood-opacity=".85"
-                 result="glowColor"/>
-        <feComposite in="glowColor"
-                     in2="blur"
-                     operator="in"
-                     result="softGlow"/>
-        <feMerge>
-          <feMergeNode in="softGlow"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-
-      <!-- GREEN GLOW -->
-      <filter id="catGreenGlow"
-              x="-100%" y="-100%"
-              width="300%" height="300%">
-        <feGaussianBlur stdDeviation="5" result="blur"/>
-        <feFlood flood-color="#659B68"
-                 flood-opacity=".9"
-                 result="glowColor"/>
-        <feComposite in="glowColor"
-                     in2="blur"
-                     operator="in"
-                     result="softGlow"/>
-        <feMerge>
-          <feMergeNode in="softGlow"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-
-    </defs>
-
-
-    <!-- ====================================== -->
-    <!-- LEFT MOLECULAR NETWORK                 -->
-    <!-- ====================================== -->
-
-    <g class="catalyst-mol-left">
-
-      <!-- Bonds -->
-
-      <g
-        fill="none"
-        stroke-linecap="round"
-        opacity=".92"
-      >
-
-        <line x1="20" y1="42"
-              x2="82" y2="82"
-              stroke="#FFFFFF"
-              stroke-width="2"/>
-
-        <line x1="82" y1="82"
-              x2="145" y2="38"
-              stroke="#FFC72C"
-              stroke-width="2.8"/>
-
-        <line x1="82" y1="82"
-              x2="118" y2="150"
-              stroke="#557F59"
-              stroke-width="2.4"/>
-
-        <line x1="145" y1="38"
-              x2="210" y2="72"
-              stroke="#FFFFFF"
-              stroke-width="2"/>
-
-        <line x1="210" y1="72"
-              x2="270" y2="35"
-              stroke="#557F59"
-              stroke-width="2.5"/>
-
-        <line x1="210" y1="72"
-              x2="255" y2="137"
-              stroke="#FFC72C"
-              stroke-width="2.8"/>
-
-        <line x1="255" y1="137"
-              x2="320" y2="104"
-              stroke="#FFFFFF"
-              stroke-width="2"/>
-
-        <line x1="320" y1="104"
-              x2="382" y2="145"
-              stroke="#557F59"
-              stroke-width="2.3"/>
-
-        <line x1="320" y1="104"
-              x2="365" y2="52"
-              stroke="#FFC72C"
-              stroke-width="2.5"/>
-
-      </g>
-
-
-      <!-- Atoms -->
-
-      <circle
-        cx="20" cy="42" r="7"
-        fill="url(#catBlack)"
-        stroke="#FFFFFF"
-        stroke-width="1"
-      />
-
-      <circle
-        cx="82" cy="82" r="13"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-        class="catalyst-glow"
-      />
-
-      <circle
-        cx="145" cy="38" r="9"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-      <circle
-        cx="118" cy="150" r="9"
-        fill="url(#catGreen)"
-        filter="url(#catGreenGlow)"
-      />
-
-      <circle
-        cx="210" cy="72" r="11"
-        fill="url(#catBlack)"
-        stroke="#FFC72C"
-        stroke-width="1.4"
-      />
-
-      <circle
-        cx="270" cy="35" r="10"
-        fill="url(#catGreen)"
-        filter="url(#catGreenGlow)"
-      />
-
-      <circle
-        cx="255" cy="137" r="12"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-      />
-
-      <circle
-        cx="320" cy="104" r="9"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-      <circle
-        cx="382" cy="145" r="7"
-        fill="url(#catBlack)"
-        stroke="#FFFFFF"
-        stroke-width="1"
-      />
-
-      <circle
-        cx="365" cy="52" r="8"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-      />
-
-    </g>
-
-
-    <!-- ====================================== -->
-    <!-- RIGHT MOLECULAR NETWORK                -->
-    <!-- ====================================== -->
-
-    <g class="catalyst-mol-right">
-
-      <!-- Ring -->
-
-      <polygon
-        points="
-          870,48
-          925,25
-          980,55
-          980,116
-          925,148
-          870,116
-        "
-        fill="none"
-        stroke="#FFFFFF"
-        stroke-width="2.2"
-        opacity=".85"
-      />
-
-
-      <!-- Bonds -->
-
-      <g
-        fill="none"
-        stroke-linecap="round"
-      >
-
-        <line
-          x1="925" y1="25"
-          x2="1010" y2="22"
-          stroke="#FFC72C"
-          stroke-width="2.8"
-        />
-
-        <line
-          x1="980" y1="55"
-          x2="1045" y2="82"
-          stroke="#557F59"
-          stroke-width="2.5"
-        />
-
-        <line
-          x1="980" y1="116"
-          x2="1050" y2="150"
-          stroke="#FFFFFF"
-          stroke-width="2"
-        />
-
-        <line
-          x1="870" y1="116"
-          x2="810" y2="155"
-          stroke="#FFC72C"
-          stroke-width="2.6"
-        />
-
-        <line
-          x1="1010" y1="22"
-          x2="1080" y2="48"
-          stroke="#FFFFFF"
-          stroke-width="2"
-        />
-
-        <line
-          x1="1045" y1="82"
-          x2="1120" y2="52"
-          stroke="#FFC72C"
-          stroke-width="2.6"
-        />
-
-        <line
-          x1="1050" y1="150"
-          x2="1130" y2="165"
-          stroke="#557F59"
-          stroke-width="2.4"
-        />
-
-        <line
-          x1="1120" y1="52"
-          x2="1180" y2="95"
-          stroke="#FFFFFF"
-          stroke-width="2"
-        />
-
-      </g>
-
-
-      <!-- Atoms -->
-
-      <circle
-        cx="870" cy="48" r="9"
-        fill="url(#catBlack)"
-        stroke="#FFFFFF"
-        stroke-width="1"
-      />
-
-      <circle
-        cx="925" cy="25" r="12"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-        class="catalyst-glow"
-      />
-
-      <circle
-        cx="980" cy="55" r="10"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-      <circle
-        cx="980" cy="116" r="11"
-        fill="url(#catGreen)"
-        filter="url(#catGreenGlow)"
-      />
-
-      <circle
-        cx="925" cy="148" r="9"
-        fill="url(#catBlack)"
-        stroke="#FFC72C"
-        stroke-width="1.4"
-      />
-
-      <circle
-        cx="870" cy="116" r="10"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-      <circle
-        cx="810" cy="155" r="8"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-      />
-
-      <circle
-        cx="1010" cy="22" r="8"
-        fill="url(#catBlack)"
-        stroke="#FFFFFF"
-        stroke-width="1"
-      />
-
-      <circle
-        cx="1045" cy="82" r="13"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-      />
-
-      <circle
-        cx="1080" cy="48" r="8"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-      <circle
-        cx="1120" cy="52" r="10"
-        fill="url(#catGreen)"
-        filter="url(#catGreenGlow)"
-      />
-
-      <circle
-        cx="1050" cy="150" r="9"
-        fill="url(#catBlack)"
-        stroke="#FFFFFF"
-        stroke-width="1"
-      />
-
-      <circle
-        cx="1130" cy="165" r="11"
-        fill="url(#catGold)"
-        filter="url(#catGoldGlow)"
-      />
-
-      <circle
-        cx="1180" cy="95" r="8"
-        fill="url(#catWhite)"
-        filter="url(#catWhiteGlow)"
-      />
-
-    </g>
-
-  </svg>
-
-
-  <!-- HEADER TEXT -->
-
-  <div class="catalyst-header-content">
-
-    <h1 class="catalyst-main-title">
-      CATALYST LAB
-      <span class="catalyst-director">
-        | Directed by Dr. Lexi Hwang
-      </span>
-    </h1>
-
-    <div class="catalyst-subtitle">
-      <b>C</b>ollaborative
-      <b>A</b>dvancement of
-      <b>T</b>eaching,
-      <b>A</b>ccess, and
-      <b>L</b>earning for
-      <b>Y</b>outh
-      <b>S</b>TEM
-      <b>T</b>ransformation
-    </div>
 
+This directly replaces the colorful molecular SVG currently in your file, which uses cyan, red, blue, and gold atoms.
+
+One important point: do not paste this in addition to your old <header>. Delete the old <header>...</header> first and paste this in the same location, immediately before your <nav> section. Your navigation begins directly after the existing header.
+
+This version should give you the black + gold + white + deep green, glowing, premium research-lab look you described.
+
+Yes. For Project SPACE and Project e-FARMS, I would add a second-level submenu inside each project page so visitors can quickly move between the main types of project information instead of scrolling through one long page.
+
+I suggest these 4 sections for each project:
+
+OVERVIEW — project goals, funding, award information, team
+RESEARCH & ACTIVITIES — research activities, trainings, workshops, implementation
+STUDENT ENGAGEMENT — undergraduate/graduate involvement, mentoring, presentations, research experiences
+OUTCOMES & HIGHLIGHTS — publications, conference presentations, photos, milestones, impact
+
+For your work, this is stronger than generic labels like “Activities” because it shows both the research and the training/impact sides of the grants.
+
+For example, under Project SPACE, the submenu could look like:
+
+PROJECT SPACE
+OVERVIEW | RESEARCH & ACTIVITIES | STUDENT ENGAGEMENT | OUTCOMES & HIGHLIGHTS
+
+And under Project e-FARMS:
+
+PROJECT e-FARMS
+OVERVIEW | RESEARCH & ACTIVITIES | STUDENT ENGAGEMENT | OUTCOMES & HIGHLIGHTS
+
+I would make these as small gold/black pill-style tabs directly under each project title. When someone clicks one, it would show only that section while staying on the same project page.
+
+For e-FARMS specifically, I would put things like student research training, cross-campus collaboration, molecular simulation activities, conference presentations, and publications under those four categories. For SPACE, you could highlight simulation-based chemistry instruction, student learning outcomes, STEM identity/motivation, implementation activities, and dissemination.
+
+If you want, I can now give you the exact copy-paste HTML/CSS/JavaScript to add those 4 sub-tabs to both Project SPACE and Project e-FARMS.
+
+can you make me index i can directly cipy and use
+
+Yes — I made a ready-to-use version of your current site with the new 4-section submenus added to both Project SPACE and Project e-FARMS.
+
+The four submenus are:
+
+Overview | Research & Activities | Student Engagement | Outcomes & Highlights
+
+I preserved the existing project information from your current file, including the SPACE and e-FARMS award details and team listings.
+
+You can directly download and use this as your new index.html:
+
+Download the updated CATALYST index file
+
+After downloading, simply rename it to index.html before uploading it to GitHub.
+
+I also made the submenu buttons responsive, so on desktop they appear as clean pill-style tabs and on a phone they stack neatly. The activity/outcome sections already contain starter placeholders so you can later add photos, workshops, student highlights, conference presentations, publications, and other project activities without redesigning the page. 
+
+catalyst-index-with-project-submenus.html
+HTML
+oh my. give me full index. you only gave me the banner so it messed up. 
+
+You are right — the previous version was not the full page. I rebuilt it from your current full index.html, so this one includes everything: header, navigation, About Us, Research Pillars, Team, Project SPACE, Project e-FARMS, Project PI, Publications, News, Contact, footer, and the scripts. Your original project/page structure is preserved.
+
+I also integrated the two changes you asked for: the black/white/gold/green glowing molecular banner and the new 4-part submenus for SPACE and e-FARMS:
+
+OVERVIEW | RESEARCH & ACTIVITIES | STUDENT ENGAGEMENT | OUTCOMES & HIGHLIGHTS
+
+Download the complete full index.html
+
+Download it, rename it simply to index.html, and replace your current GitHub index.html with this file. Your existing Banner STEM Picture.png and Headshot 2026.png should remain in the same GitHub folder because the full page still references those existing image files. 
+
+CATALYST_FULL_INDEX.html
+HTML
+
+<!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>CATALYST Lab | Directed by Dr. Lexi Hwang</title> <style> :root { --primary: #000000; --accent: #FFC72C; --bg: #FAFAFA; --text: #222222; --card-bg: #FFFFFF; --border: #E5E5E5; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Banner with Colorful 3D-Finish Molecular Design */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem 1rem;
+  border-bottom: 5px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.molecules-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Floating Animations for Molecules */
+@keyframes floatLeft {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-2deg); }
+}
+
+.mol-group-left {
+  animation: floatLeft 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.mol-group-right {
+  animation: floatRight 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.lab-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.lab-title .director-tag {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.lab-subtitle {
+  color: #dddddd;
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin-top: 0.6rem;
+}
+
+.lab-subtitle b {
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+/* Tab Navigation Bar - ALL CAPS with Dropdown Support */
+nav {
+  background: #111111;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-tabs > button, .dropdown .dropbtn {
+  background: transparent;
+  border: none;
+  color: #ddd;
+  padding: 1rem 1.2rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  font-family: inherit;
+}
+
+.nav-tabs > button:hover, .dropdown:hover .dropbtn {
+  color: var(--accent);
+}
+
+.nav-tabs > button.active, .dropdown.active .dropbtn {
+  color: #ffffff;
+  border-bottom: 3px solid var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #111111;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 101;
+  border-top: 3px solid var(--accent);
+}
+
+.dropdown-content button {
+  color: #ddd;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content button:hover {
+  background-color: rgba(255, 199, 44, 0.15);
+  color: var(--accent);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hero Banner with Image Background and Overlaid Welcome Message */
+.hero-banner-overlay {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), 
+              url('Banner STEM Picture.png') center/cover no-repeat;
+  color: #ffffff;
+  padding: 4.5rem 2rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-left: 6px solid var(--accent);
+}
+
+.hero-banner-overlay h2 {
+  font-size: 2.2rem;
+  margin-top: 0;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.hero-banner-overlay p {
+  font-size: 1.15rem;
+  max-width: 850px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.intro-box {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 2rem;
+}
+
+.intro-box h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+/* Headshot Styling */
+.headshot-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Tab Content Display Logic */
+.tab-content {
+  display: none;
+  padding: 1.5rem 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.section-title {
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.card h3, .card h4 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.project-tag {
+  display: inline-block;
+  background: #eee;
+  color: #333;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.tag-active { background: #e6f4ea; color: #137333; }
+.tag-pending { background: #fef7e0; color: #b06000; }
+
+.author-note {
+  background: #f0f4f8;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary);
+}
+
+ul.pub-list, ul.member-list {
+  padding-left: 1.2rem;
+  line-height: 1.8;
+}
+
+ul.pub-list li, ul.member-list li {
+  margin-bottom: 0.6rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+</style> </head> <body>
+
+<header> <!-- Colorful 3D Realistic Molecular SVG Pattern --> <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice"> <defs> <radialGradient id="atomGold" cx="35%" cy="35%" r="65%"> <stop offset="0%" stop-color="#FFF099" /> <stop offset="50%" stop-color="#FFC72C" /> <stop offset="100%" stop-color="#B38200" /> </radialGradient> <radialGradient id="atomCyan" cx="35%" cy="35%" r="65%"> <stop offset="0%" stop-color="#A5F3FC" /> <stop offset="50%" stop-color="#06B6D4" /> <stop offset="100%" stop-color="#0E7490" /> </radialGradient> <radialGradient id="atomRed" cx="35%" cy="35%" r="65%"> <stop offset="0%" stop-color="#FCA5A5" /> <stop offset="50%" stop-color="#EF4444" /> <stop offset="100%" stop-color="#991B1B" /> </radialGradient> <radialGradient id="atomBlue" cx="35%" cy="35%" r="65%"> <stop offset="0%" stop-color="#93C5FD" /> <stop offset="50%" stop-color="#3B82F6" /> <stop offset="100%" stop-color="#1E40AF" /> </radialGradient> </defs>
+
+  <!-- Left Molecular Complex -->
+  <g class="mol-group-left">
+    <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
+    <line x1="140" y1="90" x2="220" y2="50" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" />
+    <line x1="140" y1="90" x2="160" y2="160" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
+    <line x1="220" y1="50" x2="290" y2="110" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
+    <line x1="290" y1="110" x2="370" y2="80" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" />
+
+    <circle cx="60" cy="40" r="11" fill="url(#atomGold)" />
+    <circle cx="140" cy="90" r="15" fill="url(#atomCyan)" />
+    <circle cx="220" cy="50" r="12" fill="url(#atomRed)" />
+    <circle cx="160" cy="160" r="10" fill="url(#atomBlue)" />
+    <circle cx="290" cy="110" r="14" fill="url(#atomGold)" />
+    <circle cx="370" cy="80" r="11" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- Right Ring Molecular Structure -->
+  <g class="mol-group-right">
+    <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
+    <line x1="820" y1="30" x2="900" y2="20" stroke="#06B6D4" stroke-width="3" />
+    <line x1="870" y1="80" x2="940" y2="110" stroke="#EF4444" stroke-width="3" />
+    <line x1="850" y1="140" x2="910" y2="180" stroke="#3B82F6" stroke-width="3" />
+
+    <circle cx="750" cy="40" r="11" fill="url(#atomBlue)" />
+    <circle cx="820" cy="30" r="14" fill="url(#atomGold)" />
+    <circle cx="870" cy="80" r="13" fill="url(#atomCyan)" />
+    <circle cx="850" cy="140" r="12" fill="url(#atomRed)" />
+    <circle cx="780" cy="150" r="10" fill="url(#atomGold)" />
+    <circle cx="730" cy="100" r="11" fill="url(#atomCyan)" />
+    <circle cx="900" cy="20" r="9" fill="#FFFFFF" />
+    <circle cx="940" cy="110" r="12" fill="url(#atomGold)" />
+    <circle cx="910" cy="180" r="10" fill="url(#atomRed)" />
+  </g>
+</svg>
+
+<div class="container">
+  <h1 class="lab-title">CATALYST LAB <span class="director-tag">| Directed by Dr. Lexi Hwang</span></h1>
+  <div class="lab-subtitle">
+    <b>C</b>ollaborative <b>A</b>dvancement of <b>T</b>eaching, <b>A</b>ccess, and <b>L</b>earning for <b>Y</b>outh <b>S</b>TEM <b>T</b>ransformation
   </div>
+</div>
 
 </header>
+
+<nav> <div class="container"> <div class="nav-tabs"> <button class="tab-btn active" onclick="openTab('about')">ABOUT US</button> <button class="tab-btn" onclick="openTab('research')">RESEARCH PILLAR</button> <button class="tab-btn" onclick="openTab('team')">TEAM</button>
+
+    <!-- PROJECT Tab with Dropdown Menu -->
+    <div class="dropdown">
+      <button class="dropbtn">PROJECT ▼</button>
+      <div class="dropdown-content">
+        <button onclick="openTab('project-space')">PROJECT SPACE</button>
+        <button onclick="openTab('project-efarms')">PROJECT e-FARMS</button>
+        <button onclick="openTab('project-pi')">PROJECT PI</button>
+      </div>
+    </div>
+
+    <button class="tab-btn" onclick="openTab('publication')">PUBLICATION</button>
+    <button class="tab-btn" onclick="openTab('news')">NEWS</button>
+    <button class="tab-btn" onclick="openTab('contact')">CONTACT US</button>
+  </div>
+</div>
+
+</nav>
+
+<main class="container">
+
+<!-- Tab 1: About (Cover Page) -->
+<section id="about" class="tab-content active">
+  
+  <!-- Welcome Message Overlaid Directly on Banner STEM Picture.png -->
+  <div class="hero-banner-overlay">
+    <h2>Welcome to CATALYST LAB!</h2>
+    <p>We are delighted to welcome you to our research community. Explore our active projects, research pillars, and publications as we work together to inspire the next generation of STEM leaders.</p>
+  </div>
+
+  <div class="intro-box">
+    <h3>Catalyzing Transformative STEM Learning</h3>
+    <p>At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM.</p>
+    <p>Through collaborative research, student mentorship, and cross-disciplinary partnerships, the CATALYST Lab seeks to catalyze meaningful and lasting transformation in STEM education.</p>
+  </div>
+</section>
+
+<!-- Tab 2: Research Pillar -->
+<section id="research" class="tab-content">
+  <h2>Research Pillars</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="project-tag">Educational Tech</span>
+      <h3>Simulations & Digital Learning</h3>
+      <p>Investigating how dynamic visual tools, interactive simulations, and modeling software enhance conceptual understanding and engagement in STEM disciplines.</p>
+    </div>
+    <div class="card">
+      <span class="project-tag">Pedagogy & Access</span>
+      <h3>Inclusive Teaching Methods</h3>
+      <p>Developing evidence-based instructional frameworks that foster collaborative learning, inquiry-based problem solving, and equitable STEM participation.</p>
+    </div>
+    <div class="card">
+      <span class="project-tag">Teacher Preparation</span>
+      <h3>Educator Growth & Development</h3>
+      <p>Equipping pre-service and in-service educators with modern pedagogical tools, technology integration frameworks, and active learning strategies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Tab 3: People -->
+<section id="team" class="tab-content">
+  <h2>CATALYST Team</h2>
+
+  <h3 class="section-title">Principal Investigator</h3>
+  <div class="card" style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+    <img src="Headshot 2026.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+    <div>
+      <h3 style="margin: 0;">Dr. Lexi Hwang</h3>
+      <p style="color: #666; margin: 0.2rem 0;"><strong>Lab Director & Principal Investigator</strong></p>
+      <p>Dr. Hwang’s research focuses on STEM education, educational technology, and instructional modeling to improve youth STEM learning outcomes.</p>
+    </div>
+  </div>
+
+  <h3 class="section-title">Graduate Students</h3>
+  <div class="grid" style="margin-bottom: 2rem;">
+    <div class="card">
+      <h4>Kyle Hay</h4>
+      <p><strong>Joint Ph.D. Student</strong><br>
+      <em>California State University, Los Angeles & University of California, Los Angeles (UCLA)</em></p>
+      <p>Research focus: STEM Education, Technology Integration, and Educational Simulations.</p>
+    </div>
+  </div>
+
+  <h3 class="section-title">Undergraduate Students</h3>
+  <p style="color: #666;"><em>Information coming soon.</em></p>
+
+  <h3 class="section-title">Former Students</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Isha Patil</h4>
+      <p><strong>Lab Alumni</strong><br>
+      <em>M.S. in Computer Science</em>, Cal State LA</p>
+    </div>
+    <div class="card">
+      <h4>Arpit Vaishya</h4>
+      <p><strong>Lab Alumni</strong><br>
+      <em>M.S. in Computer Science</em>, Cal State LA</p>
+    </div>
+  </div>
+</section>
+
+<!-- Project Sub-Page 1: Project SPACE -->
+<section id="project-space" class="tab-content">
+  <h2>Project SPACE</h2>
+  <div class="card">
+    <span class="project-tag tag-active">Active (2023–2026)</span>
+    <h3>Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM</h3>
+    <p><strong>Project / Award Number:</strong> NSF Award #s 2247282 and 2247283</p>
+    <p><strong>Funding Agency:</strong> National Science Foundation (NSF) HSI Improving Undergraduate STEM</p>
+    <p><strong>Award Amount:</strong> $300,000</p>
+    <p><strong>Project Team Members & Affiliations:</strong></p>
+    <ul class="member-list">
+      <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
+      <li><strong>Dr. Leo Hong</strong> (Collaborative PI) – College of Engineering, California State University, Bakersfield </li>
+      <li><strong>Dr. Jeffrey Santner</strong> (Co-PI) – Department of Mechanical Engineering, California State University, Los Angeles</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Project Sub-Page 2: Project e-FARMS -->
+<section id="project-efarms" class="tab-content">
+  <h2>Project e-FARMS</h2>
+  <div class="card">
+    <span class="project-tag tag-active">Active (2023–2027)</span>
+    <h3>Education Reform in Food and Agriculture using Reactive Molecular Dynamic Simulations and Science Pedagogy</h3>
+    <p><strong>Project / Award Number:</strong> USDA NIFA Award # 2023-04492</p>
+    <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) National Institute of Food and Agriculture (NIFA) HSI Education Program</p>
+    <p><strong>Award Amount:</strong> $1,000,000</p>
+    <p><strong>Project Team Members & Affiliations:</strong></p>
+    <ul class="member-list">
+      <li><strong>Dr. Lexi Hwang</strong> (Program Director / PD) – College of Education, California State University, Los Angeles</li>
+      <li><strong>Dr. Leo Hong</strong> (Co-PD) – Department of Mechanical Engineering, California State University, Los Angeles</li>
+      <li><strong>Dr. Jing Zhao</strong> (Co-PD) – Department of Food Science, California State University, Los Angeles</li>
+      <li><strong>Dr. Changqi Liu</strong> (Co-PD) – Department of Food Science, California State University, Los Angeles</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Project Sub-Page 3: Project PI -->
+<section id="project-pi" class="tab-content">
+  <h2>Project PI Initiatives</h2>
+  <div class="card">
+    <span class="project-tag tag-active">Awarded (2025–2026)</span>
+    <h3>An Exploratory Case Study: Building STEM Identity and Motivation in Pre-College Students Through Virtual Simulations</h3>
+    <p><strong>Project / Award Number:</strong> CSU RCSA Award (2025–2026 Release Time Category)</p>
+    <p><strong>Funding Agency:</strong> California State University Office of the Chancellor</p>
+    <p><strong>Project Team Members & Affiliations:</strong></p>
+    <ul class="member-list">
+      <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="project-tag tag-active">Awarded (2022–2023)</span>
+    <h3>Exploring Early Career Teachers Well-Being, Job Satisfaction, and Retention</h3>
+    <p><strong>Project / Award Number:</strong> Special Project Round #9</p>
+    <p><strong>Funding Agency:</strong> College of Education, California State University, Los Angeles</p>
+    <p><strong>Award Amount:</strong> $6,880</p>
+    <p><strong>Project Team Members & Affiliations:</strong></p>
+    <ul class="member-list">
+      <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Tab 5: Publication -->
+<section id="publication" class="tab-content">
+  <h2>Publications & Scholarly Works</h2>
+
+  <div class="author-note">
+    <strong>Note:</strong> <code>†</code> indicates undergraduate/graduate student authors. <code>*</code> indicates a corresponding author with equal contribution as first author.
+  </div>
+
+  <!-- Section 1: Refereed Journal Articles -->
+  <h3 class="section-title">Refereed Journal Articles</h3>
+  <ul class="pub-list">
+    <!-- Accepted & Under Review -->
+    <li>*Campbell, V., Zulawski-Riccio, J., & <strong>Hwang, L.</strong> (2026). The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).</li>
+    <li>*Choo, S., <strong>Hwang, L.</strong>, Quanbeck, M., & Song, K. (2026). Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).</li>
+    <li>*<strong>Hwang, L.</strong>, Santner, J., Meyerott, T., Liang, M.†, Sanchez, O., Patil, I.†, … *Hong, S.L. (2026). Quadratic Growth Modeling of Stoichiometry Learning in College Students Using Reactive Molecular Dynamic Simulations Based Instruction. <em>Journal of Research in Science Teaching</em> (Under Review).</li>
+    <li>Ramiz, R., Luhar, P.†, <strong>Hwang, L.</strong>, Zhao, J., Liu, C., Meyerott, T., & Hong, S.L. (2026). SoPIP2;1 Aquaporin under Water and Salt Stress Conditions: A Molecular Dynamics Study Guided by Science Pedagogy (Under Review).</li>
+
+    <!-- Published Articles -->
+    <li>Luhar, P.†, Ramirez, R.†, *<strong>Hwang, J.L.</strong>, & *Hong, S.L. (2025). Reactive Molecular Dynamics for Modeling Combustion of Metal-Alloy Nanoparticles: Computational Study with Educational Integration. <em>Computational Materials Science</em>.</li>
+    <li>*<strong>Hwang, J.L.</strong>, Meyerott, T., Hwang, J., Luhar, P.†, Flores, K.†, Santner, J., & *Hong, S.L. (2025). A Case Study: Leveraging Reactive Molecular Dynamics Simulations and Guided Inquiry to Foster STEM Identity and Motivation Among Engineering College Students. <em>MRS Advances</em>. [<a href="https://doi.org/10.1557/s43580-025-01258-z" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Luhar, P.†, Ramirez, R.†, *<strong>Hwang, J.L.</strong>, & *Hong, S.L. (2025). Computational Analysis and Design of High-Entropy Nanoparticles: Integrating Atomistic Simulations with Scientific Pedagogy in Materials Research. <em>MRS Advances</em>. [<a href="https://doi.org/10.1557/s43580-025-01261-4" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>*<strong>Hwang, J.</strong>, Choo, S., Morano, S., Liang, M.†, & Kabel, M.† (2024). From Silos to Synergy in STEM Education: Promoting Interdisciplinary STEM Education to Enhance Science Achievement of Students with Learning Disabilities. <em>Learning Disabilities Research & Practice</em>, 39(3), 1-15. [<a href="https://doi.org/10.1177/09388982241245452" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Hwang, J., *<strong>Hwang, J.</strong>, Rodrigues, J., & Han, M. (2024). A Cross-Lagged Analysis on the Relationship between Math Achievement and Behavioral Problem for At-Risk Students. <em>The Elementary School Journal</em>, 125(1), 151-176. [<a href="https://doi.org/10.1086/731240" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Luhar, P.†, Vaishya, A.†, Flores, K.†, Trigueros, M.†, Santner, S., *Hong, S., & *<strong>Hwang, J.</strong> (2024). Evaluation of Energetic Performance of Metal Nanoparticles: Computational Materials Research incorporated with Science Pedagogy. <em>MRS Advances</em>. [<a href="https://doi.org/10.1557/s43580-024-00840-1" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Hwang, J., Sohn, J., & Han, M. (2021). Compassion Fatigue and Burnout of Early Childhood Special Education Teacher: Do Compassion Satisfaction and Social Support have Buffering Effects? <em>Journal of Special Education and Rehabilitation Science</em>, 60(3).</li>
+    <li>Kabel, M., Hwang, J.†, & *<strong>Hwang, J.</strong> (2021). Lessons Learned from A Classroom Study: Transitioning from Concrete to Virtual Manipulatives to Teach Math Fact Fluency to Students with Learning Disabilities in A Rural Classroom. <em>Journal of Curriculum Studies Research</em>, 3(1), 42-68. [<a href="https://doi.org/10.46303/jcsr.2021.7" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Taylor, J., & <strong>Hwang, J.</strong> (2021). Frameworks, Strategies, and Considerations for Remote Instruction in Science, Technology, Engineering, Arts, and Math for Students with Disabilities. <em>Intervention in School and Clinic</em>, 1-8. [<a href="https://doi.org/10.1177/10534512211001858" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Taylor, J. C., <strong>Hwang, J.</strong>, Rizzo, K., & Dorris, H. (2020). Supporting Science-Related Instruction for Students with Intellectual and Developmental Disabilities: A Review and Analysis of Research Studies. <em>Science Educators</em>, 27(2), 102-113.</li>
+    <li>Taylor, J. C., <strong>Hwang, J.</strong>, Rizzo, K., & Dorris, H. (2020). A Review of Research on Science Instruction for Students with Autism Spectrum Disorder. <em>School Science and Mathematics</em>.</li>
+    <li>Zobell, E.†, & *<strong>Hwang, J.</strong> (2020). An Examination of the Current Status of Paraprofessionals through their Lens: Role, Training, and Supervision. <em>Journal of Special Education Apprenticeship</em>, 9(1), 1-19.</li>
+    <li><strong>Hwang, J.</strong>, & Riccomini, P. J. (2019). A Descriptive Analysis of the Error Patterns Observed in the Fraction Computation Solution Pathways of Students with and without Learning Disabilities. <em>Assessment for Effective Intervention</em>, 1-11. [<a href="https://doi.org/10.1177/1534508419872256" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li><strong>Hwang, J.</strong>, Riccomini, P. J., & Morano, S. (2019). Examination of Cognitive Processes in Effective Algebra Problem-Solving Interventions for Secondary Students with Learning Disabilities. <em>Learning Disabilities: A Contemporary Journal</em>, 17(2).</li>
+    <li><strong>Hwang, J.</strong>, & Riccomini, P. J. (2019). Investigating the Relationship between Solution Pathway Preference and Accuracy of Adding Fractions for Students with Learning Disabilities. <em>British Journal of Special Education</em>, 34(1), 47-61. [<a href="https://doi.org/10.1111/1467-8578.12250" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li><strong>Hwang, J.</strong>, & *Son, J. (2019). Understanding Provision Systems and Contemporary Needs of Early Childhood Inclusive Education from Teachers’ Perspectives. <em>Journal of Special Education & Rehabilitation Science</em>, 58(1), 285-325.</li>
+    <li><strong>Hwang, J.</strong>, Riccomini, P. J., Hwang, S., & Morano, S. (2019). A Systematic Analysis of Experimental Studies Targeting Fractions for Students with Mathematics Difficulties. <em>Learning Disabilities Research & Practice</em>, 34(1), 1-15. [<a href="https://doi.org/10.1111/ldrp.12187" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li>Morano, S., Ruiz, S., <strong>Hwang, J.</strong>, Wertalik, J., Moeller, J., Karal, M. A., & Mulloy, A. (2017). Meta-Analysis of Single-Case Treatment Effects on Self-Injurious Behavior for Individuals with Autism and Intellectual Disabilities. <em>Autism & Developmental Language Impairments</em>, 2, 1-26. [<a href="https://doi.org/10.1177/2396941516688399" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li><strong>Hwang, J.</strong>, & Riccomini, P. J. (2016). Enhancing Mathematical Problem Solving for Secondary Students with or At-Risk of Learning Disabilities: A Literature Review. <em>Learning Disabilities Research and Practice</em>, 31(3), 169-181. [<a href="https://doi.org/10.1111/ldrp.12105" target="_blank" rel="noopener">DOI Link</a>]</li>
+    <li><strong>Hwang, J.</strong>, & Taylor, J. C. (2016). Stemming on STEM: A STEM Education Framework for Students with Disabilities. <em>Journal of Science Education for Students with Disabilities</em>, 19(1), 39-49.</li>
+  </ul>
+
+  <!-- Section 2: Books, Book Chapters & Special Issues -->
+  <h3 class="section-title">Books, Book Chapters & Special Issues</h3>
+  <ul class="pub-list">
+    <li><strong>Hwang, L.</strong>, Han, M., Kwak, H., Cho, H., Kim, H., et al. (2026). <em>First Grade Preparation Series: Every Child Can Learn—Don't Wait, Design</em>. Ace Book. [<a href="https://www.yes24.com/product/goods/193823642" target="_blank" rel="noopener">Book Link</a>]</li>
+    <li><strong>Hwang, L.</strong> (2026). The U.S. Inclusive Employment Service Delivery System: A Federal–State–Community Collaboration Model. <em>Global Disability Special Issues</em>, 26(3), 20–26. Republic of Korea Employment Agency for Individuals with Disabilities (Invited Article).</li>
+    <li>Taylor, J. C., Koehler, K., Rizzo, K., & <strong>Hwang, J.</strong> (2018). The Rise of Measurement: Assessing Science and the Implications for Students with Special Needs. In M. H. Koomen, S. Kahn, C. Atchison, & T. Wild (Eds.), <em>Towards Inclusion of All Learners in Science Teacher Education</em>.</li>
+    <li>Riccomini, P. J., <strong>Hwang, J.</strong>, & Morano, S. (2016). Developing Mathematical Problem Solving through Strategic Instruction: Much More than a Keyword. In B. G. Cook, M. Tankersley, & T. J. Landrum (Eds.), <em>Instructional Practices with and without Empirical Validity Advances in Learning and Behavioral Disabilities</em> (pp. 39-60). Emerald Group Publishing Limited.</li>
+  </ul>
+
+  <!-- Section 3: Practitioner Publications, Reports & Dissertations -->
+  <h3 class="section-title">Practitioner Publications, Reports & Dissertations</h3>
+  <ul class="pub-list">
+    <li>Morano, S., <strong>Hwang, J.</strong>, Kohler, K. M., Markelz, A. M., Rizzo, K., & Riccomini, P. J. (2016). 5 Ways to Scaffold Mathematics Instruction for Secondary Students with Learning Disabilities. <em>LD Forum</em>, Council of Learning Disabilities.</li>
+    <li>Riccomini, P. J., Morano, S., & <strong>Hwang, J.</strong> (2015). Interleaved Worked Examples and Math Problems: Embedding Instructional Guidance in Math Homework and Independent Practice to Improve Student Accuracy and Outcomes. <em>Educational Research Newsletter & Webinars</em>.</li>
+    <li><strong>Hwang, J.</strong> (2016). <em>An examination of error patterns associated with middle school students’ solution pathways when solving fraction computation involving addition</em> (Doctoral dissertation, The Pennsylvania State University).</li>
+  </ul>
+</section>
+
+<!-- Tab 6: News -->
+<section id="news" class="tab-content">
+  <h2>Lab News & Announcements</h2>
+  <div class="card">
+    <p><strong>Welcome to the CATALYST Lab Website!</strong> Explore our latest funded research grants, project SPACE initiatives, and team profiles.</p>
+  </div>
+</section>
+
+<!-- Tab 7: Contact -->
+<section id="contact" class="tab-content">
+  <h2>Contact </h2>
+  <p>Interested in research collaborations, graduate studies, or learning more about the CATALYST Lab?</p>
+  <p><strong>Email:</strong> jhwang31@calstatela.edu</p>
+  <p><strong>Location:</strong> College of Education, California State University, Los Angeles</p>
+</section>
+
+</main>
+
+<footer> <div class="container"> <p>&copy; CATALYST Lab | Directed by Dr. Lexi Hwang</p> </div> </footer>
+
+<script> function openTab(tabId) { const contents = document.querySelectorAll('.tab-content'); contents.forEach(content => content.classList.remove('active')); // Deactivate all top-level buttons and dropdown active status const buttons = document.querySelectorAll('.nav-tabs button, .dropbtn'); buttons.forEach(btn => btn.classList.remove('active')); const dropdowns = document.querySelectorAll('.dropdown'); dropdowns.forEach(drop => drop.classList.remove('active')); // Show selected tab content const targetContent = document.getElementById(tabId); if (targetContent) { targetContent.classList.add('active'); } // Highlight corresponding dropdown or tab button if (tabId.startsWith('project-')) { document.querySelector('.dropdown').classList.add('active'); } else if (event && event.currentTarget) { event.currentTarget.classList.add('active'); } } </script>
+
+</body> </html>
+
+Close
