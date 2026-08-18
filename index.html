@@ -23,7 +23,7 @@
       padding: 0;
     }
 
-    /* Header Banner with Lively Animated Molecular Design */
+    /* Header Banner with Colorful 3D-Finish Molecular Design */
     header {
       background: var(--primary);
       color: #fff;
@@ -39,24 +39,19 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.35;
+      opacity: 0.55;
       pointer-events: none;
     }
 
-    /* Lively Keyframe Animations for Molecules */
+    /* Floating Animations for Molecules */
     @keyframes floatLeft {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
+      50% { transform: translateY(-7px) rotate(2deg); }
     }
 
     @keyframes floatRight {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(10px) rotate(-3deg); }
-    }
-
-    @keyframes pulseAtom {
-      0%, 100% { r: 8px; opacity: 0.8; }
-      50% { r: 12px; opacity: 1; }
+      50% { transform: translateY(8px) rotate(-2deg); }
     }
 
     .mol-group-left {
@@ -67,10 +62,6 @@
     .mol-group-right {
       animation: floatRight 7s ease-in-out infinite;
       transform-origin: center;
-    }
-
-    .pulse-node {
-      animation: pulseAtom 3s ease-in-out infinite;
     }
 
     .container {
@@ -108,7 +99,7 @@
       font-size: 1.15rem;
     }
 
-    /* Tab Navigation Bar */
+    /* Tab Navigation Bar - ALL CAPS */
     nav {
       background: #111111;
       padding: 0;
@@ -130,8 +121,10 @@
       border: none;
       color: #ddd;
       padding: 1rem 1.2rem;
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
       cursor: pointer;
       transition: all 0.2s ease;
       border-bottom: 3px solid transparent;
@@ -163,16 +156,32 @@
       display: block;
     }
 
+    .welcome-card {
+      background: linear-gradient(135deg, #111111 0%, #222222 100%);
+      color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 6px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      margin-bottom: 2rem;
+    }
+
+    .welcome-card h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
     .intro-box {
       background: var(--card-bg);
       padding: 2rem;
       border-radius: 8px;
-      border-left: 5px solid var(--accent);
+      border: 1px solid var(--border);
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       margin-bottom: 2rem;
     }
 
-    .intro-box h2 {
+    .intro-box h3 {
       margin-top: 0;
       color: var(--primary);
     }
@@ -261,40 +270,68 @@
 <body>
 
   <header>
-    <!-- Lively Animated Molecular Background SVG -->
+    <!-- Colorful 3D Realistic Molecular SVG Pattern -->
     <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
-      <!-- Left Animated Molecular Chain -->
-      <g class="mol-group-left">
-        <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="2.5" />
-        <line x1="140" y1="90" x2="220" y2="50" stroke="#FFFFFF" stroke-width="2" />
-        <line x1="140" y1="90" x2="160" y2="160" stroke="#FFC72C" stroke-width="2" />
-        <line x1="220" y1="50" x2="290" y2="110" stroke="#FFFFFF" stroke-width="2" />
-        <line x1="290" y1="110" x2="370" y2="80" stroke="#FFC72C" stroke-width="2.5" />
+      <defs>
+        <!-- 3D Gradients for Realistic Spheres -->
+        <radialGradient id="atomGold" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#FFF099" />
+          <stop offset="50%" stop-color="#FFC72C" />
+          <stop offset="100%" stop-color="#B38200" />
+        </radialGradient>
+        <radialGradient id="atomCyan" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#A5F3FC" />
+          <stop offset="50%" stop-color="#06B6D4" />
+          <stop offset="100%" stop-color="#0E7490" />
+        </radialGradient>
+        <radialGradient id="atomRed" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#FCA5A5" />
+          <stop offset="50%" stop-color="#EF4444" />
+          <stop offset="100%" stop-color="#991B1B" />
+        </radialGradient>
+        <radialGradient id="atomBlue" cx="35%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#93C5FD" />
+          <stop offset="50%" stop-color="#3B82F6" />
+          <stop offset="100%" stop-color="#1E40AF" />
+        </radialGradient>
+      </defs>
 
-        <circle cx="60" cy="40" r="9" fill="#FFC72C" />
-        <circle cx="140" cy="90" r="12" fill="#FFFFFF" class="pulse-node" />
-        <circle cx="220" cy="50" r="8" fill="#FFC72C" />
-        <circle cx="160" cy="160" r="7" fill="#FFFFFF" />
-        <circle cx="290" cy="110" r="10" fill="#FFC72C" class="pulse-node" />
-        <circle cx="370" cy="80" r="8" fill="#FFFFFF" />
+      <!-- Left Molecular Complex -->
+      <g class="mol-group-left">
+        <!-- Bonds -->
+        <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
+        <line x1="140" y1="90" x2="220" y2="50" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" />
+        <line x1="140" y1="90" x2="160" y2="160" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
+        <line x1="220" y1="50" x2="290" y2="110" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
+        <line x1="290" y1="110" x2="370" y2="80" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" />
+
+        <!-- 3D Atoms -->
+        <circle cx="60" cy="40" r="11" fill="url(#atomGold)" />
+        <circle cx="140" cy="90" r="15" fill="url(#atomCyan)" />
+        <circle cx="220" cy="50" r="12" fill="url(#atomRed)" />
+        <circle cx="160" cy="160" r="10" fill="url(#atomBlue)" />
+        <circle cx="290" cy="110" r="14" fill="url(#atomGold)" />
+        <circle cx="370" cy="80" r="11" fill="#FFFFFF" opacity="0.9" />
       </g>
 
-      <!-- Right Animated Ring Molecular Structure -->
+      <!-- Right Ring Molecular Structure -->
       <g class="mol-group-right">
-        <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="2.5" />
-        <line x1="820" y1="30" x2="900" y2="20" stroke="#FFFFFF" stroke-width="2" />
-        <line x1="870" y1="80" x2="940" y2="110" stroke="#FFC72C" stroke-width="2" />
-        <line x1="850" y1="140" x2="910" y2="180" stroke="#FFFFFF" stroke-width="2" />
+        <!-- Ring Bonds -->
+        <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
+        <line x1="820" y1="30" x2="900" y2="20" stroke="#06B6D4" stroke-width="3" />
+        <line x1="870" y1="80" x2="940" y2="110" stroke="#EF4444" stroke-width="3" />
+        <line x1="850" y1="140" x2="910" y2="180" stroke="#3B82F6" stroke-width="3" />
 
-        <circle cx="750" cy="40" r="8" fill="#FFFFFF" />
-        <circle cx="820" cy="30" r="10" fill="#FFC72C" class="pulse-node" />
-        <circle cx="870" cy="80" r="11" fill="#FFFFFF" />
-        <circle cx="850" cy="140" r="9" fill="#FFC72C" />
-        <circle cx="780" cy="150" r="7" fill="#FFFFFF" />
-        <circle cx="730" cy="100" r="8" fill="#FFC72C" />
-        <circle cx="900" cy="20" r="7" fill="#FFFFFF" />
-        <circle cx="940" cy="110" r="9" fill="#FFC72C" class="pulse-node" />
-        <circle cx="910" cy="180" r="8" fill="#FFFFFF" />
+        <!-- 3D Ring Nodes -->
+        <circle cx="750" cy="40" r="11" fill="url(#atomBlue)" />
+        <circle cx="820" cy="30" r="14" fill="url(#atomGold)" />
+        <circle cx="870" cy="80" r="13" fill="url(#atomCyan)" />
+        <circle cx="850" cy="140" r="12" fill="url(#atomRed)" />
+        <circle cx="780" cy="150" r="10" fill="url(#atomGold)" />
+        <circle cx="730" cy="100" r="11" fill="url(#atomCyan)" />
+        <circle cx="900" cy="20" r="9" fill="#FFFFFF" />
+        <circle cx="940" cy="110" r="12" fill="url(#atomGold)" />
+        <circle cx="910" cy="180" r="10" fill="url(#atomRed)" />
       </g>
     </svg>
 
@@ -309,27 +346,33 @@
   <nav>
     <div class="container">
       <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openTab('about')">About Us</button>
-        <button class="tab-btn" onclick="openTab('research')">Research Pillar</button>
-        <button class="tab-btn" onclick="openTab('team')">Team</button>
-        <button class="tab-btn" onclick="openTab('project')">Project</button>
-        <button class="tab-btn" onclick="openTab('publication')">Publication</button>
-        <button class="tab-btn" onclick="openTab('news')">News</button>
-        <button class="tab-btn" onclick="openTab('contact')">Contact Us</button>
+        <button class="tab-btn active" onclick="openTab('about')">ABOUT US</button>
+        <button class="tab-btn" onclick="openTab('research')">RESEARCH PILLAR</button>
+        <button class="tab-btn" onclick="openTab('team')">TEAM</button>
+        <button class="tab-btn" onclick="openTab('project')">PROJECT</button>
+        <button class="tab-btn" onclick="openTab('publication')">PUBLICATION</button>
+        <button class="tab-btn" onclick="openTab('news')">NEWS</button>
+        <button class="tab-btn" onclick="openTab('contact')">CONTACT US</button>
       </div>
     </div>
   </nav>
 
   <main class="container">
 
-    <!-- Tab 1: About Us -->
+    <!-- Tab 1: About Us (Cover Page) -->
     <section id="about" class="tab-content active">
       <div class="hero-image-container">
-        <img src="hero-banner.jpg" alt="CATALYST - Inspiring the Next Generation of STEM Innovators">
+        <img src="hero-banner.png" alt="CATALYST - Inspiring the Next Generation of STEM Innovators">
+      </div>
+
+      <!-- Welcoming Message Banner -->
+      <div class="welcome-card">
+        <h2>Welcome to CATALYST LAB!</h2>
+        <p>We are delighted to welcome you to our research community. Explore our projects, research pillars, and publications as we work together to inspire the next generation of STEM leaders.</p>
       </div>
 
       <div class="intro-box">
-        <h2>Catalyzing Transformative STEM Learning</h2>
+        <h3>Catalyzing Transformative STEM Learning</h3>
         <p>At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM.</p>
         <p>Through collaborative research, student mentorship, and cross-disciplinary partnerships, the CATALYST Lab seeks to catalyze meaningful and lasting transformation in STEM education.</p>
       </div>
