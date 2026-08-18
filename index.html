@@ -99,7 +99,7 @@
       font-size: 1.15rem;
     }
 
-    /* Tab Navigation Bar - ALL CAPS */
+    /* Tab Navigation Bar - ALL CAPS with Dropdown Support */
     nav {
       background: #111111;
       padding: 0;
@@ -116,7 +116,7 @@
       padding: 0;
     }
 
-    .nav-tabs button {
+    .nav-tabs > button, .dropdown .dropbtn {
       background: transparent;
       border: none;
       color: #ddd;
@@ -128,16 +128,58 @@
       cursor: pointer;
       transition: all 0.2s ease;
       border-bottom: 3px solid transparent;
+      font-family: inherit;
     }
 
-    .nav-tabs button:hover {
+    .nav-tabs > button:hover, .dropdown:hover .dropbtn {
       color: var(--accent);
     }
 
-    .nav-tabs button.active {
+    .nav-tabs > button.active, .dropdown.active .dropbtn {
       color: #ffffff;
       border-bottom: 3px solid var(--accent);
       background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Dropdown Styling */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #111111;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+      z-index: 101;
+      border-top: 3px solid var(--accent);
+    }
+
+    .dropdown-content button {
+      color: #ddd;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-content button:hover {
+      background-color: rgba(255, 199, 44, 0.15);
+      color: var(--accent);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     /* Hero Banner with Image Background and Overlaid Welcome Message */
@@ -180,6 +222,16 @@
     .intro-box h3 {
       margin-top: 0;
       color: var(--primary);
+    }
+
+    /* Headshot Styling */
+    .headshot-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     /* Tab Content Display Logic */
@@ -340,7 +392,17 @@
         <button class="tab-btn active" onclick="openTab('about')">ABOUT US</button>
         <button class="tab-btn" onclick="openTab('research')">RESEARCH PILLAR</button>
         <button class="tab-btn" onclick="openTab('team')">TEAM</button>
-        <button class="tab-btn" onclick="openTab('project')">PROJECT</button>
+        
+        <!-- PROJECT Tab with Dropdown Menu -->
+        <div class="dropdown">
+          <button class="dropbtn">PROJECT ▼</button>
+          <div class="dropdown-content">
+            <button onclick="openTab('project-space')">PROJECT SPACE</button>
+            <button onclick="openTab('project-efarms')">PROJECT e-FARMS</button>
+            <button onclick="openTab('project-pi')">PROJECT PI</button>
+          </div>
+        </div>
+
         <button class="tab-btn" onclick="openTab('publication')">PUBLICATION</button>
         <button class="tab-btn" onclick="openTab('news')">NEWS</button>
         <button class="tab-btn" onclick="openTab('contact')">CONTACT US</button>
@@ -394,9 +456,7 @@
 
       <h3 class="section-title">Principal Investigator</h3>
       <div class="card" style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
-        <div style="background: #e0e0e0; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #555;">
-          [ Photo ]
-        </div>
+        <img src="Headshot 2026.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
         <div>
           <h3 style="margin: 0;">Dr. Lexi Hwang</h3>
           <p style="color: #666; margin: 0.2rem 0;"><strong>Lab Director & Principal Investigator</strong></p>
@@ -432,15 +492,30 @@
       </div>
     </section>
 
-    <!-- Tab 4: Project -->
-    <section id="project" class="tab-content">
-      <h2>Research Projects & Grants</h2>
+    <!-- Project Sub-Page 1: Project SPACE -->
+    <section id="project-space" class="tab-content">
+      <h2>Project SPACE</h2>
+      <div class="card">
+        <span class="project-tag tag-active">Active (2023–2026)</span>
+        <h3>Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM</h3>
+        <p><strong>Project / Award Number:</strong> NSF Award #s 2247282 and 2247283</p>
+        <p><strong>Funding Agency:</strong> National Science Foundation (NSF) HSI Improving Undergraduate STEM</p>
+        <p><strong>Award Amount:</strong> $300,000</p>
+        <p><strong>Project Team Members & Affiliations:</strong></p>
+        <ul class="member-list">
+          <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
+          <li><strong>Dr. Sung-Yeun Hong</strong> (Collaborative PI) – College of Engineering, California State University, Los Angeles</li>
+          <li><strong>Dr. Joseph Santner</strong> (Co-PI) – Department of Mechanical Engineering, California State University, Los Angeles</li>
+        </ul>
+      </div>
+    </section>
 
-      <h3 class="section-title">Active & Awarded Projects</h3>
-
+    <!-- Project Sub-Page 2: Project e-FARMS -->
+    <section id="project-efarms" class="tab-content">
+      <h2>Project e-FARMS</h2>
       <div class="card">
         <span class="project-tag tag-active">Active (2023–2027)</span>
-        <h3>Education Reform in Food and Agriculture using Reactive Molecular Dynamic Simulations and Science Pedagogy (e-FARMS)</h3>
+        <h3>Education Reform in Food and Agriculture using Reactive Molecular Dynamic Simulations and Science Pedagogy</h3>
         <p><strong>Project / Award Number:</strong> USDA NIFA Award # 2023-04492</p>
         <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) National Institute of Food and Agriculture (NIFA) HSI Education Program</p>
         <p><strong>Award Amount:</strong> $1,000,000</p>
@@ -452,21 +527,11 @@
           <li><strong>Dr. C. Liu</strong> (Co-PD) – Department of Food Science, California State University, Los Angeles</li>
         </ul>
       </div>
+    </section>
 
-      <div class="card">
-        <span class="project-tag tag-active">Active (2023–2026)</span>
-        <h3>Project SPACE: Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM</h3>
-        <p><strong>Project / Award Number:</strong> NSF Award #s 2247282 and 2247283</p>
-        <p><strong>Funding Agency:</strong> National Science Foundation (NSF) HSI Improving Undergraduate STEM</p>
-        <p><strong>Award Amount:</strong> $300,000</p>
-        <p><strong>Project Team Members & Affiliations:</strong></p>
-        <ul class="member-list">
-          <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
-          <li><strong>Dr. Sung-Yeun Hong</strong> (Collaborative PI) – College of Engineering, California State University, Los Angeles</li>
-          <li><strong>Dr. Joseph Santner</strong> (Co-PI) – Department of Mechanical Engineering, California State University, Los Angeles</li>
-        </ul>
-      </div>
-
+    <!-- Project Sub-Page 3: Project PI -->
+    <section id="project-pi" class="tab-content">
+      <h2>Project PI Initiatives</h2>
       <div class="card">
         <span class="project-tag tag-active">Awarded (2025–2026)</span>
         <h3>An Exploratory Case Study: Building STEM Identity and Motivation in Pre-College Students Through Virtual Simulations</h3>
@@ -487,36 +552,6 @@
         <p><strong>Project Team Members & Affiliations:</strong></p>
         <ul class="member-list">
           <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator / PI) – College of Education, California State University, Los Angeles</li>
-        </ul>
-      </div>
-
-      <h3 class="section-title">Pending Projects</h3>
-
-      <div class="card">
-        <span class="project-tag tag-pending">Pending (2027–2030)</span>
-        <h3>Technology-Enhanced, AI-Empowered, and Scaffolded Learning for Transformative Experimentation in Food, Nutrition, and Health (TASTE)</h3>
-        <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) NIFA ($2,000,000 Requested)</p>
-        <p><strong>Project Team Members & Affiliations:</strong></p>
-        <ul class="member-list">
-          <li><strong>Dr. Lexi Hwang</strong> (Program Director / PD) – College of Education, California State University, Los Angeles</li>
-          <li><strong>Dr. T. Meyerott</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. D. Krum</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. C. Liu</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. Sung-Yeun Hong</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. L. Shang</strong> (Co-PD) – California State University, Los Angeles</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <span class="project-tag tag-pending">Pending (2027–2030)</span>
-        <h3>Simulation, Modeling, AR/VR, and Research Training in Food Science (SMART-FOOD)</h3>
-        <p><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) NIFA ($650,000 Requested)</p>
-        <p><strong>Project Team Members & Affiliations:</strong></p>
-        <ul class="member-list">
-          <li><strong>Dr. Lexi Hwang</strong> (Program Director / PD) – College of Education, California State University, Los Angeles</li>
-          <li><strong>Dr. C. Liu</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. J. Zhao</strong> (Co-PD) – California State University, Los Angeles</li>
-          <li><strong>Dr. Sung-Yeun Hong</strong> (Co-PD) – California State University, Los Angeles</li>
         </ul>
       </div>
     </section>
@@ -608,11 +643,24 @@
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
 
-      const buttons = document.querySelectorAll('.tab-btn');
+      // Deactivate all top-level buttons and dropdown active status
+      const buttons = document.querySelectorAll('.nav-tabs button, .dropbtn');
       buttons.forEach(btn => btn.classList.remove('active'));
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(drop => drop.classList.remove('active'));
 
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
+      // Show selected tab content
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+
+      // Highlight corresponding dropdown or tab button
+      if (tabId.startsWith('project-')) {
+        document.querySelector('.dropdown').classList.add('active');
+      } else if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      }
     }
   </script>
 
