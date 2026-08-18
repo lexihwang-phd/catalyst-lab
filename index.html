@@ -140,36 +140,32 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Clean Image Display */
-    .hero-image-container {
-      width: 100%;
-      overflow: hidden;
+    /* Hero Banner with Image Background and Overlaid Welcome Message */
+    .hero-banner-overlay {
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), 
+                  url('Banner STEM Picture.png') center/cover no-repeat;
+      color: #ffffff;
+      padding: 4.5rem 2rem;
       border-radius: 8px;
       margin-top: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .hero-image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .welcome-card {
-      background: linear-gradient(135deg, #111111 0%, #222222 100%);
-      color: #ffffff;
-      padding: 2rem;
-      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       border-left: 6px solid var(--accent);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-      margin-bottom: 2rem;
     }
 
-    .welcome-card h2 {
+    .hero-banner-overlay h2 {
+      font-size: 2.2rem;
       margin-top: 0;
       color: var(--accent);
-      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-banner-overlay p {
+      font-size: 1.15rem;
+      max-width: 850px;
+      line-height: 1.7;
+      margin-bottom: 0;
     }
 
     .intro-box {
@@ -273,7 +269,6 @@
     <!-- Colorful 3D Realistic Molecular SVG Pattern -->
     <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
       <defs>
-        <!-- 3D Gradients for Realistic Spheres -->
         <radialGradient id="atomGold" cx="35%" cy="35%" r="65%">
           <stop offset="0%" stop-color="#FFF099" />
           <stop offset="50%" stop-color="#FFC72C" />
@@ -298,14 +293,12 @@
 
       <!-- Left Molecular Complex -->
       <g class="mol-group-left">
-        <!-- Bonds -->
         <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="220" y2="50" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="160" y2="160" stroke="#EF4444" stroke-width="3" stroke-linecap="round" />
         <line x1="220" y1="50" x2="290" y2="110" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
         <line x1="290" y1="110" x2="370" y2="80" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" />
 
-        <!-- 3D Atoms -->
         <circle cx="60" cy="40" r="11" fill="url(#atomGold)" />
         <circle cx="140" cy="90" r="15" fill="url(#atomCyan)" />
         <circle cx="220" cy="50" r="12" fill="url(#atomRed)" />
@@ -316,13 +309,11 @@
 
       <!-- Right Ring Molecular Structure -->
       <g class="mol-group-right">
-        <!-- Ring Bonds -->
         <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
         <line x1="820" y1="30" x2="900" y2="20" stroke="#06B6D4" stroke-width="3" />
         <line x1="870" y1="80" x2="940" y2="110" stroke="#EF4444" stroke-width="3" />
         <line x1="850" y1="140" x2="910" y2="180" stroke="#3B82F6" stroke-width="3" />
 
-        <!-- 3D Ring Nodes -->
         <circle cx="750" cy="40" r="11" fill="url(#atomBlue)" />
         <circle cx="820" cy="30" r="14" fill="url(#atomGold)" />
         <circle cx="870" cy="80" r="13" fill="url(#atomCyan)" />
@@ -361,14 +352,11 @@
 
     <!-- Tab 1: About Us (Cover Page) -->
     <section id="about" class="tab-content active">
-      <div class="hero-image-container">
-        <img src="hero-banner.png" alt="CATALYST - Inspiring the Next Generation of STEM Innovators">
-      </div>
-
-      <!-- Welcoming Message Banner -->
-      <div class="welcome-card">
+      
+      <!-- Welcome Message Overlaid Directly on Banner STEM Picture.png -->
+      <div class="hero-banner-overlay">
         <h2>Welcome to CATALYST LAB!</h2>
-        <p>We are delighted to welcome you to our research community. Explore our projects, research pillars, and publications as we work together to inspire the next generation of STEM leaders.</p>
+        <p>We are delighted to welcome you to our research community. Explore our active projects, research pillars, and publications as we work together to inspire the next generation of STEM leaders.</p>
       </div>
 
       <div class="intro-box">
