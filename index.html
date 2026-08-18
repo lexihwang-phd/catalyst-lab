@@ -56,35 +56,76 @@
       margin-top: 0.4rem;
     }
 
+    /* Tab Navigation Bar */
     nav {
       background: #111;
-      padding: 0.8rem 0;
+      padding: 0;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    nav a {
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-tabs button {
+      background: transparent;
+      border: none;
       color: #ddd;
-      text-decoration: none;
-      margin-right: 1.8rem;
+      padding: 1rem 1.5rem;
       font-weight: 600;
       font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 3px solid transparent;
     }
 
-    nav a:hover { color: var(--accent); }
-
-    section {
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
+    .nav-tabs button:hover {
+      color: var(--accent);
     }
 
-    .hero {
-      background: var(--card-bg);
-      padding: 2rem;
+    .nav-tabs button.active {
+      color: #ffffff;
+      border-bottom: 3px solid var(--accent);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Hero Banner with Background Image */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #ffffff;
+      padding: 4rem 2rem;
       border-radius: 8px;
-      border-left: 6px solid var(--accent);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .hero-banner h2 {
+      font-size: 2rem;
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .hero-banner p {
+      font-size: 1.1rem;
+      max-width: 800px;
+    }
+
+    /* Tab Content Display Logic */
+    .tab-content {
+      display: none;
+      padding: 2.5rem 0;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     .grid {
@@ -125,6 +166,8 @@
       padding: 2rem 0;
       font-size: 0.9rem;
       color: #666;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -140,23 +183,31 @@
 
   <nav>
     <div class="container">
-      <a href="#about">About</a>
-      <a href="#research">Research & Initiatives</a>
-      <a href="#pi">Principal Investigator</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <div class="nav-tabs">
+        <button class="tab-btn active" onclick="openTab('about')">About</button>
+        <button class="tab-btn" onclick="openTab('research')">Research & Pillars</button>
+        <button class="tab-btn" onclick="openTab('pi')">Principal Investigator</button>
+        <button class="tab-btn" onclick="openTab('publications')">Publications</button>
+        <button class="tab-btn" onclick="openTab('contact')">Contact</button>
+      </div>
     </div>
   </nav>
 
   <main class="container">
-    <section id="about">
-      <div class="hero">
-        <h2>About the CATALYST Lab</h2>
+
+    <!-- Tab 1: About (Cover / Home Tab) -->
+    <section id="about" class="tab-content active">
+      <div class="hero-banner">
+        <h2>Empowering Youth Through Active STEM Learning</h2>
         <p>The <strong>CATALYST Lab</strong> at California State University, Los Angeles serves as a research hub dedicated to driving STEM education transformation. We examine how innovative teaching strategies, educational technologies, and collaborative learning environments broaden STEM access and improve learning outcomes for youth and pre-service educators.</p>
       </div>
+
+      <h2>Our Core Mission</h2>
+      <p>By bringing hands-on experimentation, interactive simulations, and evidence-based pedagogy into K–12 and postsecondary learning spaces, our goal is to foster deep conceptual understanding and inspire the next generation of STEM innovators.</p>
     </section>
 
-    <section id="research">
+    <!-- Tab 2: Research Pillars -->
+    <section id="research" class="tab-content">
       <h2>Research Pillars</h2>
       <div class="grid">
         <div class="card">
@@ -177,7 +228,8 @@
       </div>
     </section>
 
-    <section id="pi">
+    <!-- Tab 3: Principal Investigator -->
+    <section id="pi" class="tab-content">
       <h2>Principal Investigator</h2>
       <div class="card">
         <h3>Lexi Hwang, Ph.D.</h3>
@@ -187,7 +239,8 @@
       </div>
     </section>
 
-    <section id="publications">
+    <!-- Tab 4: Publications -->
+    <section id="publications" class="tab-content">
       <h2>Selected Publications & Projects</h2>
       <ul>
         <li><strong>Hwang, L.</strong>, et al. <em>From Silos to Synergy in STEM Education: Promoting Interdisciplinary Learning...</em></li>
@@ -195,12 +248,14 @@
       </ul>
     </section>
 
-    <section id="contact">
+    <!-- Tab 5: Contact -->
+    <section id="contact" class="tab-content">
       <h2>Contact Us</h2>
       <p>Interested in research collaborations or learning more about the CATALYST Lab?</p>
       <p><strong>Email:</strong> lhwang@calstatela.edu<br>
       <strong>Location:</strong> College of Education, California State University, Los Angeles</p>
     </section>
+
   </main>
 
   <footer>
@@ -208,6 +263,22 @@
       <p>&copy; CATALYST Lab | California State University, Los Angeles</p>
     </div>
   </footer>
+
+  <script>
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Show selected tab content and set button active
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
