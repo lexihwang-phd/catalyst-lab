@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CATALYST Lab | Cal State LA</title>
+  <title>CATALYST Lab | Directed by Dr. Lexi Hwang</title>
   <style>
     :root {
-      --primary: #000000; /* Cal State LA Black */
-      --accent: #FFC72C;  /* Cal State LA Gold */
+      --primary: #000000;
+      --accent: #FFC72C;
       --bg: #FAFAFA;
       --text: #222222;
       --card-bg: #FFFFFF;
@@ -37,28 +37,44 @@
     }
 
     .lab-title {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 800;
       margin: 0;
       letter-spacing: 0.5px;
     }
 
-    .lab-subtitle {
+    .lab-title .director-tag {
+      font-size: 1.15rem;
+      font-weight: 500;
       color: var(--accent);
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-top: 0.3rem;
+      display: inline-block;
+      margin-left: 0.5rem;
     }
 
-    .institution {
-      color: #bbb;
-      font-size: 0.95rem;
+    .lab-topic {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .lab-subtitle {
+      color: #dddddd;
+      font-size: 1.05rem;
+      font-weight: 400;
       margin-top: 0.4rem;
+    }
+
+    .lab-subtitle b {
+      color: var(--accent);
+      font-size: 1.15rem;
     }
 
     /* Tab Navigation Bar */
     nav {
-      background: #111;
+      background: #111111;
       padding: 0;
       position: sticky;
       top: 0;
@@ -77,9 +93,9 @@
       background: transparent;
       border: none;
       color: #ddd;
-      padding: 1rem 1.5rem;
+      padding: 1rem 1.2rem;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.2s ease;
       border-bottom: 3px solid transparent;
@@ -92,47 +108,57 @@
     .nav-tabs button.active {
       color: #ffffff;
       border-bottom: 3px solid var(--accent);
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Hero Banner with Background Image */
+    /* Hero Banner with Kid-Friendly Youth STEM Image */
     .hero-banner {
       position: relative;
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                  url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), 
+                  url('https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: #ffffff;
-      padding: 4rem 2rem;
+      padding: 4.5rem 2rem;
       border-radius: 8px;
       margin-bottom: 2rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .hero-banner h2 {
-      font-size: 2rem;
+      font-size: 2.1rem;
       margin-top: 0;
       color: var(--accent);
     }
 
     .hero-banner p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       max-width: 800px;
+      line-height: 1.7;
     }
 
     /* Tab Content Display Logic */
     .tab-content {
       display: none;
-      padding: 2.5rem 0;
+      padding: 2rem 0;
     }
 
     .tab-content.active {
       display: block;
     }
 
+    .section-title {
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .card {
@@ -142,12 +168,9 @@
       border: 1px solid var(--border);
     }
 
-    .card h3 {
+    .card h3, .card h4 {
       margin-top: 0;
       color: var(--primary);
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
-      padding-bottom: 0.3rem;
     }
 
     .project-tag {
@@ -167,7 +190,7 @@
       font-size: 0.9rem;
       color: #666;
       border-top: 1px solid var(--border);
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -175,38 +198,42 @@
 
   <header>
     <div class="container">
-      <h1 class="lab-title">CATALYST LAB</h1>
-      <div class="lab-subtitle">Collaborative Advancement of Teaching, Access, and Learning for Youth STEM Transformation</div>
-      <div class="institution">College of Education | California State University, Los Angeles</div>
+      <h1 class="lab-title">CATALYST LAB <span class="director-tag">| Directed by Dr. Lexi Hwang</span></h1>
+      <div class="lab-topic">STEM Education</div>
+      <div class="lab-subtitle">
+        <b>C</b>ollaborative <b>A</b>dvancement of <b>T</b>eaching, <b>A</b>ccess, and <b>L</b>earning for <b>Y</b>outh <b>S</b>TEM <b>T</b>ransformation
+      </div>
     </div>
   </header>
 
   <nav>
     <div class="container">
       <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openTab('about')">About</button>
-        <button class="tab-btn" onclick="openTab('research')">Research & Pillars</button>
-        <button class="tab-btn" onclick="openTab('pi')">Principal Investigator</button>
-        <button class="tab-btn" onclick="openTab('publications')">Publications</button>
-        <button class="tab-btn" onclick="openTab('contact')">Contact</button>
+        <button class="tab-btn active" onclick="openTab('about')">About Us</button>
+        <button class="tab-btn" onclick="openTab('research')">Research Pillar</button>
+        <button class="tab-btn" onclick="openTab('team')">Team</button>
+        <button class="tab-btn" onclick="openTab('project')">Project</button>
+        <button class="tab-btn" onclick="openTab('publication')">Publication</button>
+        <button class="tab-btn" onclick="openTab('news')">News</button>
+        <button class="tab-btn" onclick="openTab('contact')">Contact Us</button>
       </div>
     </div>
   </nav>
 
   <main class="container">
 
-    <!-- Tab 1: About (Cover / Home Tab) -->
+    <!-- Tab 1: About Us -->
     <section id="about" class="tab-content active">
       <div class="hero-banner">
-        <h2>Empowering Youth Through Active STEM Learning</h2>
-        <p>The <strong>CATALYST Lab</strong> at California State University, Los Angeles serves as a research hub dedicated to driving STEM education transformation. We examine how innovative teaching strategies, educational technologies, and collaborative learning environments broaden STEM access and improve learning outcomes for youth and pre-service educators.</p>
+        <h2>Inspiring Youth Through Hands-On STEM Discovery</h2>
+        <p>At the <strong>CATALYST Lab</strong>, we bring active learning, interactive technology, and collaborative experimentation directly to youth learners and pre-service educators to broaden STEM access and build deep conceptual understanding.</p>
       </div>
 
-      <h2>Our Core Mission</h2>
-      <p>By bringing hands-on experimentation, interactive simulations, and evidence-based pedagogy into K–12 and postsecondary learning spaces, our goal is to foster deep conceptual understanding and inspire the next generation of STEM innovators.</p>
+      <h2 class="section-title">Our Mission</h2>
+      <p>We are dedicated to transforming STEM education through innovative pedagogical frameworks, computational simulations, and inclusive teaching practices that empower youth to explore, question, and excel in science and mathematics.</p>
     </section>
 
-    <!-- Tab 2: Research Pillars -->
+    <!-- Tab 2: Research Pillar -->
     <section id="research" class="tab-content">
       <h2>Research Pillars</h2>
       <div class="grid">
@@ -228,53 +255,96 @@
       </div>
     </section>
 
-    <!-- Tab 3: Principal Investigator -->
-    <section id="pi" class="tab-content">
-      <h2>Principal Investigator</h2>
-      <div class="card">
-        <h3>Lexi Hwang, Ph.D.</h3>
-        <p><strong>Faculty Researcher</strong> | College of Education<br>
-        <em>California State University, Los Angeles</em></p>
-        <p>Dr. Hwang’s research focuses on STEM education, educational technology, and instructional modeling. Her work examines how innovative teaching practices and interactive digital tools transform classroom learning experiences.</p>
+    <!-- Tab 3: Team -->
+    <section id="team" class="tab-content">
+      <h2>CATALYST Lab Team</h2>
+
+      <h3 class="section-title">Principal Investigator</h3>
+      <div class="card" style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+        <div style="background: #e0e0e0; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #555;">
+          [ Photo ]
+        </div>
+        <div>
+          <h3 style="margin: 0;">Dr. Lexi Hwang</h3>
+          <p style="color: #666; margin: 0.2rem 0;"><strong>Lab Director & Principal Investigator</strong></p>
+          <p>Dr. Hwang’s research focuses on STEM education, educational technology, and instructional modeling to improve youth STEM learning outcomes.</p>
+        </div>
+      </div>
+
+      <h3 class="section-title">Graduate Students</h3>
+      <div class="grid" style="margin-bottom: 2rem;">
+        <div class="card">
+          <h4>Graduate Researcher</h4>
+          <p><em>Focus: Interactive Simulations & Youth Engagement</em></p>
+        </div>
+      </div>
+
+      <h3 class="section-title">Undergraduate Students</h3>
+      <div class="grid" style="margin-bottom: 2rem;">
+        <div class="card">
+          <h4>Undergraduate Assistant</h4>
+          <p><em>Focus: Data Collection & Educational Tool Testing</em></p>
+        </div>
+      </div>
+
+      <h3 class="section-title">Former Students</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Lab Alumni</h4>
+          <p><em>Former Research Assistant</em></p>
+        </div>
       </div>
     </section>
 
-    <!-- Tab 4: Publications -->
-    <section id="publications" class="tab-content">
-      <h2>Selected Publications & Projects</h2>
+    <!-- Tab 4: Project -->
+    <section id="project" class="tab-content">
+      <h2>Current Research Projects</h2>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <span class="project-tag">Active Project</span>
+        <h3>Project SPACE</h3>
+        <p><strong>Simulation-Based Pedagogical Approach in Chemistry Education:</strong> Investigating interactive simulations and virtual experiment tools for secondary and postsecondary chemistry learners.</p>
+      </div>
+    </section>
+
+    <!-- Tab 5: Publication -->
+    <section id="publication" class="tab-content">
+      <h2>Publications & Grants</h2>
       <ul>
         <li><strong>Hwang, L.</strong>, et al. <em>From Silos to Synergy in STEM Education: Promoting Interdisciplinary Learning...</em></li>
-        <li><strong>Project SPACE:</strong> <em>Simulation-Based Pedagogical Approach in Chemistry Education.</em></li>
       </ul>
     </section>
 
-    <!-- Tab 5: Contact -->
+    <!-- Tab 6: News -->
+    <section id="news" class="tab-content">
+      <h2>Lab News & Announcements</h2>
+      <div class="card">
+        <p><strong>Welcome to the new CATALYST Lab website!</strong> Stay tuned for updates on our latest research projects and community engagement initiatives.</p>
+      </div>
+    </section>
+
+    <!-- Tab 7: Contact Us -->
     <section id="contact" class="tab-content">
       <h2>Contact Us</h2>
       <p>Interested in research collaborations or learning more about the CATALYST Lab?</p>
-      <p><strong>Email:</strong> lhwang@calstatela.edu<br>
-      <strong>Location:</strong> College of Education, California State University, Los Angeles</p>
+      <p><strong>Email:</strong> lhwang@calstatela.edu</p>
     </section>
 
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; CATALYST Lab | California State University, Los Angeles</p>
+      <p>&copy; CATALYST Lab | Directed by Dr. Lexi Hwang</p>
     </div>
   </footer>
 
   <script>
     function openTab(tabId) {
-      // Hide all tab contents
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
 
-      // Remove active class from all buttons
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // Show selected tab content and set button active
       document.getElementById(tabId).classList.add('active');
       event.currentTarget.classList.add('active');
     }
