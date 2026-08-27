@@ -254,7 +254,7 @@
       color: var(--primary);
     }
 
-    /* Structured Cover Page Columns (VirtuE Lab Style) */
+    /* Structured Cover Page Columns */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -326,7 +326,7 @@
       margin-bottom: 0.8rem;
     }
 
-    /* Action Buttons (VirtuE Lab Style) */
+    /* Action Buttons */
     .btn-action {
       display: inline-block;
       background: var(--primary);
@@ -399,7 +399,7 @@
       }
     }
 
-    /* General Styling */
+    /* Headshot Styling */
     .headshot-img {
       width: 130px;
       height: 130px;
@@ -407,6 +407,7 @@
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
     }
 
     .tab-content {
@@ -440,6 +441,40 @@
       border-radius: 6px;
       border: 1px solid var(--border);
       margin-bottom: 1rem;
+    }
+
+    /* Consistent Member Card Layout */
+    .member-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .member-info {
+      flex: 1;
+    }
+
+    .member-info h4 {
+      margin: 0 0 0.2rem 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .member-title {
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0 0 0.6rem 0;
+    }
+
+    .member-interests {
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.5;
     }
 
     .pillar-card {
@@ -754,9 +789,8 @@
 
   <main class="container">
 
-    <!-- Tab 1: About (Cover Page with Two-Column Front Cover Dashboard) -->
+    <!-- Tab 1: About -->
     <section id="about" class="tab-content active">
-      
       <div class="hero-banner-overlay">
         <h2>Welcome to CATALYST LAB!</h2>
         <p>Welcome to our research community! Explore our research, innovative projects, and scholarly work as we collaborate to advance STEM education and inspire the next generation of STEM learners and leaders.</p>
@@ -767,10 +801,7 @@
         <p style="margin: 0;">At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM.</p>
       </div>
 
-      <!-- Front Page Dashboard Columns (VirtuE Lab Style Sample) -->
       <div class="dashboard-grid">
-        
-        <!-- Left Column: Featured News & Opportunities -->
         <div class="dashboard-col">
           <h3 class="dashboard-col-title">
             <span>📢 Recent News & Opportunities</span>
@@ -792,7 +823,6 @@
           </div>
         </div>
 
-        <!-- Right Column: Research Highlights & Events -->
         <div class="dashboard-col">
           <h3 class="dashboard-col-title">
             <span>🔬 Research & Project Highlights</span>
@@ -813,7 +843,6 @@
             <button class="btn-action secondary" onclick="openTab('publication')">View Publications</button>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -857,51 +886,59 @@
 
       <h3 class="section-title">Principal Investigator</h3>
       <div class="card" style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 2rem;">
-        <img src="Headshot 2026.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+        <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
         <div style="flex: 1; min-width: 280px;">
           <h3 style="margin: 0;">Dr. Lexi Hwang</h3>
           <p style="color: #666; margin: 0.2rem 0 0.8rem 0;"><strong>Lab Director & Principal Investigator</strong></p>
-          <p>Dr. Lexi Hwang is an Associate Professor at California State University, Los Angeles and the founder and director of the CATALYST Lab. She earned her Ph.D. in Special Education from The Pennsylvania State University, with interdisciplinary training in mathematics education, learning difficulties, and educational statistics. Her research focuses on innovative and inclusive STEM education, evidence-based instructional practices, and interdisciplinary approaches to improving STEM teaching and learning. Her current work also explores the integration of computational simulations, AI, and emerging technologies to enhance STEM learning experiences. As Principal Investigator of federally and institutionally funded projects, Dr. Hwang leads collaborative research and student training initiatives that bridge education, science, and engineering to advance STEM learning and broaden participation.</p>
+          <p><strong>Research Interests:</strong> Innovative and inclusive STEM education, evidence-based instructional practices, computational simulations, AI, and emerging technologies in learning environments.</p>
         </div>
       </div>
 
-      <h3 class="section-title">Graduate Students</h3>
-      <div class="grid" style="margin-bottom: 2rem;">
-        <div class="card">
-          <h4>Kyle Hay</h4>
-          <p><strong>Joint Ph.D. Student</strong><br>
-          <em>California State University, Los Angeles & University of California, Los Angeles (UCLA)</em></p>
-          <p>Research focus: STEM Education, Technology Integration, and Educational Simulations.</p>
+      <h3 class="section-title">Doctoral Students</h3>
+      <div style="margin-bottom: 2rem;">
+        <div class="member-card">
+          <img src="K_Hay_headshot.png" alt="Kyle Hay" class="headshot-img" onerror="this.style.display='none'">
+          <div class="member-info">
+            <h4>Kyle Hay</h4>
+            <div class="member-title"><strong>Ph.D. Candidate</strong></div>
+            <p class="member-interests"><strong>Research Interests:</strong> Cognitive control and neurodiverse teenagers' executive function abilities, and how those intersect with mathematics and learning disabilities to impact students in the classroom.</p>
+          </div>
         </div>
-        <div class="card">
-          <h4>Priyanshu Luhar</h4>
-          <p><strong>Graduate Student Researcher</strong><br>
-          <em>Department of Computer Science, California State University, Los Angeles</em></p>
-          <p>Research focus: Molecular dynamics simulations, AI in education, and web development.</p>
+
+        <div class="member-card">
+          <div class="member-info">
+            <h4>Ya-Hsuan “Ashley” Huang</h4>
+            <div class="member-title"><strong>Ph.D. Candidate</strong> | e-FARMS Research Fellow</div>
+            <p class="member-interests"><strong>Research Interests:</strong> </p>
+          </div>
         </div>
       </div>
 
       <h3 class="section-title">Undergraduate Students</h3>
-      <p style="color: #666;"><em>Information coming soon.</em></p>
+      <div style="margin-bottom: 2rem;">
+        <div class="member-card">
+          <div class="member-info">
+            <h4>Priyanshu Luhar</h4>
+            <div class="member-title"><strong>Undergraduate Student in Computer Science</strong> | California State University, Bakersfield</div>
+            <p class="member-interests"><strong>Research Interests:</strong> Molecular dynamics simulations, AI in education, and web development.</p>
+          </div>
+        </div>
 
-      <h3 class="section-title">Former Students & Alumni</h3>
-      <div class="grid">
-        <div class="card">
-          <h4>Isha Patil</h4>
-          <p><strong>Lab Alumni</strong><br>
-          <em>M.S. in Computer Science</em>, Cal State LA</p>
-        </div>
-        <div class="card">
-          <h4>Arpit Vaishya</h4>
-          <p><strong>Lab Alumni</strong><br>
-          <em>M.S. in Computer Science</em>, Cal State LA</p>
-        </div>
-        <div class="card">
-          <h4>Marlen</h4>
-          <p><strong>Lab Alumni</strong><br>
-          <em>Research Assistant Alumni</em>, Cal State LA</p>
+        <div class="member-card">
+          <div class="member-info">
+            <h4>Othon Sanchez</h4>
+            <div class="member-title"><strong>Undergraduate Student in Electrical Engineering</strong> | California State University, Los Angeles</div>
+            <p class="member-interests"><strong>Research Interests:</strong> </p>
+          </div>
         </div>
       </div>
+
+      <h3 class="section-title">Former Students & Alumni</h3>
+      <ul class="member-list" style="margin-bottom: 2rem;">
+        <li><strong>Isha Patil</strong> – <em>Lab Alumni</em> (M.S. in Computer Science, Cal State LA)</li>
+        <li><strong>Arpit Vaishya</strong> – <em>Lab Alumni</em> (M.S. in Computer Science, Cal State LA)</li>
+        <li><strong>Marlen</strong> – <em>Lab Alumni</em> (Research Assistant Alumni, Cal State LA)</li>
+      </ul>
     </section>
 
     <!-- Project Sub-Page 1: Project SPACE -->
@@ -1123,7 +1160,7 @@
       </div>
     </section>
 
-    <!-- Tab 7: Structured Contact Section (VirtuE Lab Style) -->
+    <!-- Tab 7: Contact Section -->
     <section id="contact" class="tab-content">
       <h2>Contact Us</h2>
       
