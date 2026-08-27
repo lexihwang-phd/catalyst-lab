@@ -96,7 +96,7 @@
     .d4 { animation-delay: 2.4s; }
 
     .container {
-      max-width: 950px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 1.5rem;
       position: relative;
@@ -130,7 +130,7 @@
       font-size: 1.15rem;
     }
 
-    /* Tab Navigation Bar - ALL CAPS with Dropdown Support */
+    /* Tab Navigation Bar */
     nav {
       background: #111111;
       padding: 0;
@@ -172,7 +172,6 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Dropdown Styling */
     .dropdown {
       position: relative;
       display: inline-block;
@@ -213,10 +212,10 @@
       display: block;
     }
 
-    /* Hero Banner with Image Background and Overlaid Welcome Message */
+    /* Hero Banner with Image Background */
     .hero-banner-overlay {
       position: relative;
-      background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), 
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
                   url('Banner STEM Picture.png') center/cover no-repeat;
       color: #ffffff;
       padding: 4.5rem 2rem;
@@ -255,7 +254,152 @@
       color: var(--primary);
     }
 
-    /* Headshot Styling */
+    /* Structured Cover Page Columns (VirtuE Lab Style) */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dashboard-col {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .dashboard-col-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dash-item {
+      background: #fafafa;
+      border-left: 4px solid var(--primary);
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .dash-item.highlight {
+      border-left-color: var(--accent);
+      background: #fdfbf2;
+    }
+
+    .dash-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .dash-item-date {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .dash-item-desc {
+      font-size: 0.88rem;
+      color: #444;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Action Buttons (VirtuE Lab Style) */
+    .btn-action {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--accent);
+      color: #000000;
+    }
+
+    .btn-action.secondary {
+      background: #e0e0e0;
+      color: #222222;
+    }
+
+    .btn-action.secondary:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Contact Card Styling */
+    .contact-card-structured {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-card-structured {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info-group p {
+      margin: 0.4rem 0;
+      font-size: 0.98rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      justify-content: center;
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-actions {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+      }
+    }
+
+    /* General Styling */
     .headshot-img {
       width: 130px;
       height: 130px;
@@ -265,7 +409,6 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* Tab Content Display Logic */
     .tab-content {
       display: none;
       padding: 1.5rem 0;
@@ -299,12 +442,6 @@
       margin-bottom: 1rem;
     }
 
-    .card h3, .card h4 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    /* Research Pillar Specific Styling */
     .pillar-card {
       background: var(--card-bg);
       padding: 1.5rem;
@@ -344,15 +481,12 @@
     }
 
     .tag-active { background: #e6f4ea; color: #137333; }
-    .tag-pending { background: #fef7e0; color: #b06000; }
 
-    /* Single-line Compact Formatting for Projects */
     .project-single-line {
       line-height: 1.35;
       margin: 0.2rem 0;
     }
 
-    /* Project Layout with Left Sidebar */
     .project-layout {
       display: flex;
       gap: 1.8rem;
@@ -408,7 +542,6 @@
       display: block;
     }
 
-    /* Square Filled Box Bullets for Publications */
     .author-note {
       background: #f0f4f8;
       padding: 0.8rem 1.2rem;
@@ -434,7 +567,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* Interactive News Accordion/Expandable Items */
     .news-item {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -497,10 +629,6 @@
       text-decoration: underline;
     }
 
-    .email-link:hover {
-      color: #b38200;
-    }
-
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -514,7 +642,6 @@
 <body>
 
   <header>
-    <!-- SVG Pattern with Realistic Starburst Lens Flares & Stardust -->
     <svg class="molecules-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid slice">
       <defs>
         <radialGradient id="goldGlow" cx="35%" cy="35%" r="65%">
@@ -530,7 +657,6 @@
         </radialGradient>
       </defs>
 
-      <!-- Realistic Multi-Ray Starburst Lens Flares -->
       <g class="starburst d1" transform="translate(180, 45)">
         <circle cx="0" cy="0" r="28" fill="url(#starCenter)" />
         <path d="M-60,0 L60,0 M0,-60 L0,60 M-35,-35 L35,35 M-35,35 L35,-35" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9" />
@@ -548,7 +674,6 @@
         <path d="M-70,0 L70,0 M0,-70 L0,70 M-40,-40 L40,40 M-40,40 L40,-40" stroke="#FFFFFF" stroke-width="1.8" opacity="0.9" />
       </g>
 
-      <!-- Shimmering Stardust Wave -->
       <g class="stardust d1">
         <circle cx="80" cy="120" r="2" fill="#FFFFFF" opacity="0.8" />
         <circle cx="120" cy="140" r="1.5" fill="#FFE599" opacity="0.9" />
@@ -563,7 +688,6 @@
         <circle cx="940" cy="60" r="2.5" fill="#FFFFFF" opacity="0.9" />
       </g>
 
-      <!-- Left Molecular Structure -->
       <g class="mol-group-left">
         <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="220" y2="50" stroke="#FFD866" stroke-width="3" stroke-linecap="round" />
@@ -579,7 +703,6 @@
         <circle cx="370" cy="80" r="11" fill="url(#goldGlow)" />
       </g>
 
-      <!-- Right Ring Molecular Structure -->
       <g class="mol-group-right">
         <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
         <line x1="820" y1="30" x2="900" y2="20" stroke="#FFE599" stroke-width="3" />
@@ -613,7 +736,6 @@
         <button class="tab-btn" onclick="openTab('research')">RESEARCH PILLAR</button>
         <button class="tab-btn" onclick="openTab('team')">TEAM</button>
 
-        <!-- PROJECT Tab with Dropdown Menu -->
         <div class="dropdown">
           <button class="dropbtn">PROJECT ▼</button>
           <div class="dropdown-content">
@@ -632,10 +754,9 @@
 
   <main class="container">
 
-    <!-- Tab 1: About (Cover Page) -->
+    <!-- Tab 1: About (Cover Page with Two-Column Front Cover Dashboard) -->
     <section id="about" class="tab-content active">
       
-      <!-- Custom Welcoming Message Overlaid on Banner STEM Picture.png -->
       <div class="hero-banner-overlay">
         <h2>Welcome to CATALYST LAB!</h2>
         <p>Welcome to our research community! Explore our research, innovative projects, and scholarly work as we collaborate to advance STEM education and inspire the next generation of STEM learners and leaders.</p>
@@ -643,7 +764,56 @@
 
       <div class="intro-box">
         <h3>Catalyzing Transformative STEM Learning</h3>
-        <p style="margin: 0;">At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM. Through collaborative research, student mentorship, and cross-disciplinary partnerships, the CATALYST Lab seeks to catalyze meaningful and lasting transformation in STEM education.</p>
+        <p style="margin: 0;">At the <strong>CATALYST Lab</strong>, we advance innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development across educational settings. Our work explores how evidence-based pedagogy, experiential learning, computational simulations, AI, and emerging technologies can deepen conceptual understanding, strengthen STEM identity and motivation, and expand meaningful opportunities for students to engage and succeed in STEM.</p>
+      </div>
+
+      <!-- Front Page Dashboard Columns (VirtuE Lab Style Sample) -->
+      <div class="dashboard-grid">
+        
+        <!-- Left Column: Featured News & Opportunities -->
+        <div class="dashboard-col">
+          <h3 class="dashboard-col-title">
+            <span>📢 Recent News & Opportunities</span>
+            <button class="btn-action secondary" onclick="openTab('news')">View All</button>
+          </h3>
+
+          <div class="dash-item highlight">
+            <span class="dash-item-date">August 2026</span>
+            <div class="dash-item-title">USDA STEM Fellowship Recruitment</div>
+            <div class="dash-item-desc">We are recruiting student fellows for the USDA-funded STEM education research training fellowship for Fall 2026.</div>
+            <button class="btn-action" onclick="openTab('news')">Apply / Read Announcement</button>
+          </div>
+
+          <div class="dash-item">
+            <span class="dash-item-date">August 2026</span>
+            <div class="dash-item-title">CATALYST Lab Website Launch</div>
+            <div class="dash-item-desc">Explore our research projects, publications, team profiles, and ongoing STEM initiatives.</div>
+            <button class="btn-action secondary" onclick="openTab('about')">Explore Lab</button>
+          </div>
+        </div>
+
+        <!-- Right Column: Research Highlights & Events -->
+        <div class="dashboard-col">
+          <h3 class="dashboard-col-title">
+            <span>🔬 Research & Project Highlights</span>
+            <button class="btn-action secondary" onclick="openTab('research')">All Pillars</button>
+          </h3>
+
+          <div class="dash-item">
+            <span class="dash-item-date">NSF Funded Project</span>
+            <div class="dash-item-title">Project SPACE</div>
+            <div class="dash-item-desc">Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM.</div>
+            <button class="btn-action" onclick="openTab('project-space')">Explore Project SPACE</button>
+          </div>
+
+          <div class="dash-item">
+            <span class="dash-item-date">May 2026 Publication</span>
+            <div class="dash-item-title">Accepted in JRST & JSE</div>
+            <div class="dash-item-desc">New papers on science course pathways and mathematical problem-solving errors accepted for publication.</div>
+            <button class="btn-action secondary" onclick="openTab('publication')">View Publications</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -866,16 +1036,13 @@
         <strong>Note:</strong> <code>†</code> indicates undergraduate/graduate student authors. <code>*</code> indicates a corresponding author with equal contribution as first author. Please note that publications under the names <em>Hwang, L.</em> and <em>Hwang, J.</em> refer to the same author following a professional name change.
       </div>
 
-      <!-- Section 1: Refereed Journal Articles -->
       <h3 class="section-title">Refereed Journal Articles</h3>
       <ul class="pub-list">
-        <!-- Accepted & Under Review -->
         <li>Campbell, V., Zulawski-Riccio, J., & Hwang, L. (2026). The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).</li>
         <li>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026). Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).</li>
         <li>*Hwang, L., Santner, J., Meyerott, T., Liang, M.†, Sanchez, O., Patil, I.†, … *Hong, S.L. (2026). Quadratic Growth Modeling of Stoichiometry Learning in College Students Using Reactive Molecular Dynamic Simulations Based Instruction. <em>Journal of Research in Science Teaching</em> (Under Review).</li>
         <li>Ramiz, R., Luhar, P.†, Hwang, L., Zhao, J., Liu, C., Meyerott, T., & Hong, S.L. (2026). SoPIP2;1 Aquaporin under Water and Salt Stress Conditions: A Molecular Dynamics Study Guided by Science Pedagogy (Under Review).</li>
 
-        <!-- Published Articles -->
         <li>Luhar, P.†, Ramirez, R.†, *Hwang, J.L., & *Hong, S.L. (2025). Reactive Molecular Dynamics for Modeling Combustion of Metal-Alloy Nanoparticles: Computational Study with Educational Integration. <em>Computational Materials Science</em>.</li>
         <li>*Hwang, J.L., Meyerott, T., Hwang, J., Luhar, P.†, Flores, K.†, Santner, J., & *Hong, S.L. (2025). A Case Study: Leveraging Reactive Molecular Dynamics Simulations and Guided Inquiry to Foster STEM Identity and Motivation Among Engineering College Students. <em>MRS Advances</em>. [<a href="https://doi.org/10.1557/s43580-025-01258-z" target="_blank" rel="noopener">DOI Link</a>]</li>
         <li>Luhar, P.†, Ramirez, R.†, *Hwang, J.L., & *Hong, S.L. (2025). Computational Analysis and Design of High-Entropy Nanoparticles: Integrating Atomistic Simulations with Scientific Pedagogy in Materials Research. <em>MRS Advances</em>. [<a href="https://doi.org/10.1557/s43580-025-01261-4" target="_blank" rel="noopener">DOI Link</a>]</li>
@@ -898,7 +1065,6 @@
         <li>Hwang, J., & Taylor, J. C. (2016). Stemming on STEM: A STEM Education Framework for Students with Disabilities. <em>Journal of Science Education for Students with Disabilities</em>, 19(1), 39-49.</li>
       </ul>
 
-      <!-- Section 2: Books, Book Chapters & Special Issues -->
       <h3 class="section-title">Books, Book Chapters & Special Issues</h3>
       <ul class="pub-list">
         <li>Hwang, L., Han, M., Kwak, H., Cho, H., Kim, H., et al. (2026). <em>First Grade Preparation Series: Every Child Can Learn—Don't Wait, Design</em>. Ace Book. [<a href="https://www.yes24.com/product/goods/193823642" target="_blank" rel="noopener">Book Link</a>]</li>
@@ -907,7 +1073,6 @@
         <li>Riccomini, P. J., Hwang, J., & Morano, S. (2016). Developing Mathematical Problem Solving through Strategic Instruction: Much More than a Keyword. In B. G. Cook, M. Tankersley, & T. J. Landrum (Eds.), <em>Instructional Practices with and without Empirical Validity Advances in Learning and Behavioral Disabilities</em> (pp. 39-60). Emerald Group Publishing Limited.</li>
       </ul>
 
-      <!-- Section 3: Practitioner Publications, Reports & Dissertations -->
       <h3 class="section-title">Practitioner Publications, Reports & Dissertations</h3>
       <ul class="pub-list">
         <li>Morano, S., Hwang, J., Kohler, K. M., Markelz, A. M., Rizzo, K., & Riccomini, P. J. (2016). 5 Ways to Scaffold Mathematics Instruction for Secondary Students with Learning Disabilities. <em>LD Forum</em>, Council of Learning Disabilities.</li>
@@ -920,7 +1085,6 @@
     <section id="news" class="tab-content">
       <h2>Lab News & Announcements</h2>
 
-      <!-- Interactive Accordion News Item 1: USDA Recruitment -->
       <div class="news-item">
         <div class="news-header" onclick="toggleNews(this)">
           <span class="news-title">Recruitment: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</span>
@@ -938,7 +1102,6 @@
         </div>
       </div>
 
-      <!-- Interactive Accordion News Item 2 -->
       <div class="news-item">
         <div class="news-header" onclick="toggleNews(this)">
           <span class="news-title">Welcome to the CATALYST Lab Website!</span>
@@ -949,7 +1112,6 @@
         </div>
       </div>
 
-      <!-- Interactive Accordion News Item 3 -->
       <div class="news-item">
         <div class="news-header" onclick="toggleNews(this)">
           <span class="news-title">New Journal Articles Accepted in JRST and JSE</span>
@@ -961,15 +1123,25 @@
       </div>
     </section>
 
-    <!-- Tab 7: Contact -->
+    <!-- Tab 7: Structured Contact Section (VirtuE Lab Style) -->
     <section id="contact" class="tab-content">
-      <h2>Contact</h2>
-      <div class="card">
-        <p style="font-size: 1.05rem; margin-top: 0;">Interested in research collaborations, graduate studies, or learning more about the CATALYST Lab? Contact Dr. Lexi Hwang.</p>
-        <hr style="border: none; border-top: 1px solid var(--border); margin: 1.2rem 0;">
-        <h3 style="margin: 0 0 0.3rem 0; color: var(--primary);">Dr. Lexi Hwang, Ph.D.</h3>
-        <p style="margin: 0 0 0.3rem 0; color: #555;">Associate Professor in College of Education, California State University, Los Angeles</p>
-        <p style="margin: 0;"><strong>Email:</strong> <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a></p>
+      <h2>Contact Us</h2>
+      
+      <div class="contact-card-structured">
+        <div class="contact-info-group">
+          <h3 style="margin-top: 0; color: var(--primary); font-size: 1.3rem;">CATALYST Lab</h3>
+          <p><strong>Director:</strong> Dr. Lexi Hwang, Ph.D.</p>
+          <p><strong>Title:</strong> Associate Professor, College of Education</p>
+          <p><strong>Institution:</strong> California State University, Los Angeles</p>
+          <p><strong>Location:</strong> King Hall, 5151 State University Dr, Los Angeles, CA 90032</p>
+          <p><strong>Email:</strong> <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a></p>
+        </div>
+
+        <div class="contact-actions">
+          <a href="mailto:jhwang31@calstatela.edu" class="btn-action" style="text-align: center;">Email Dr. Hwang</a>
+          <button class="btn-action secondary" onclick="openTab('research')">View Research</button>
+          <button class="btn-action secondary" onclick="openTab('project-space')">Explore Projects</button>
+        </div>
       </div>
     </section>
 
@@ -986,27 +1158,23 @@
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
 
-      // Deactivate all top-level buttons and dropdown active status
       const buttons = document.querySelectorAll('.nav-tabs button, .dropbtn');
       buttons.forEach(btn => btn.classList.remove('active'));
       const dropdowns = document.querySelectorAll('.dropdown');
       dropdowns.forEach(drop => drop.classList.remove('active'));
 
-      // Show selected tab content
       const targetContent = document.getElementById(tabId);
       if (targetContent) {
         targetContent.classList.add('active');
       }
 
-      // Highlight corresponding dropdown or tab button
       if (tabId.startsWith('project-')) {
         document.querySelector('.dropdown').classList.add('active');
-      } else if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
+      } else if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
       }
     }
 
-    // Switch Project Sub-pages (Sidebar)
     function switchProjectSub(projectKey, subTab, btnElement) {
       const parentSection = document.getElementById('project-' + projectKey);
       const subSections = parentSection.querySelectorAll('.sub-section');
@@ -1019,7 +1187,6 @@
       btnElement.classList.add('active');
     }
 
-    // Toggle Accordion Pop/Expand for News Items
     function toggleNews(headerElement) {
       const body = headerElement.nextElementSibling;
       body.classList.toggle('open');
