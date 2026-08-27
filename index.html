@@ -64,12 +64,6 @@
       50% { opacity: 1; transform: scale(1.3) rotate(15deg); filter: drop-shadow(0 0 12px #ffffff); }
     }
 
-    @keyframes stardustFloat {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
-      50% { transform: translateY(-6px) scale(1.2); opacity: 0.9; }
-      100% { transform: translateY(0) scale(0.8); opacity: 0.3; }
-    }
-
     .mol-group-left {
       animation: floatLeft 6s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
       transform-origin: center;
@@ -86,14 +80,9 @@
       transform-origin: center;
     }
 
-    .stardust {
-      animation: stardustFloat 4s ease-in-out infinite;
-    }
-
     .d1 { animation-delay: 0s; }
     .d2 { animation-delay: 0.8s; }
     .d3 { animation-delay: 1.6s; }
-    .d4 { animation-delay: 2.4s; }
 
     .container {
       max-width: 1000px;
@@ -249,12 +238,6 @@
       margin-bottom: 2rem;
     }
 
-    .intro-box h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    /* Structured Cover Page Columns */
     .dashboard-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -326,7 +309,6 @@
       margin-bottom: 0.8rem;
     }
 
-    /* Action Buttons */
     .btn-action {
       display: inline-block;
       background: var(--primary);
@@ -358,56 +340,41 @@
       color: #ffffff;
     }
 
-    /* Contact Card Styling */
-    .contact-card-structured {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .contact-card-structured {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .contact-info-group p {
-      margin: 0.4rem 0;
-      font-size: 0.98rem;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      justify-content: center;
-      border-left: 1px solid var(--border);
-      padding-left: 2rem;
-    }
-
-    @media (max-width: 768px) {
-      .contact-actions {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid var(--border);
-        padding-top: 1.5rem;
-      }
-    }
-
-    /* Headshot Styling - Updated to Square with Subtle Rounded Corners */
+    /* Headshot & Fallback Image Container */
     .headshot-img {
       width: 140px;
       height: 140px;
-      border-radius: 8px; /* Square with soft edges so the entire head/face fits clearly */
+      border-radius: 8px;
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       flex-shrink: 0;
+    }
+
+    /* No Image Fallback Box */
+    .no-image-placeholder {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+      border: 2px dashed #cccccc;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #888888;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.03);
+    }
+
+    .no-image-placeholder span {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+      opacity: 0.6;
     }
 
     .tab-content {
@@ -443,7 +410,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Consistent Member Card Layout */
     .member-card {
       background: var(--card-bg);
       padding: 1.5rem;
@@ -602,57 +568,106 @@
       margin-bottom: 0.6rem;
     }
 
-    .news-item {
+    .news-card-fancy {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      margin-bottom: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       overflow: hidden;
     }
 
-    .news-header {
-      padding: 1rem 1.2rem;
-      background: #ffffff;
+    .news-card-fancy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    }
+
+    .news-card-fancy.hero-post {
+      border: 2px solid var(--accent);
+      background: linear-gradient(to bottom, #ffffff, #fffef7);
+    }
+
+    .news-card-header {
+      padding: 1.2rem 1.5rem;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.2s;
+      user-select: none;
+      background: transparent;
     }
 
-    .news-header:hover {
-      background: #fcfbf7;
+    .news-meta-group {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
-    .news-title {
+    .news-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-welcome { background: #FFC72C; color: #000000; }
+    .badge-pub { background: #e3f2fd; color: #0d47a1; }
+    .badge-recruitment { background: #e8f5e9; color: #1b5e20; }
+
+    .news-date-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #777;
+    }
+
+    .news-headline {
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--primary);
-      font-size: 1rem;
+      margin: 0.4rem 0 0 0;
     }
 
-    .news-date {
+    .chevron-icon {
       font-size: 0.85rem;
-      color: #777;
-      font-weight: 600;
-      background: #f0f0f0;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
+      color: #888;
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
     }
 
-    .news-body {
+    .chevron-icon.open {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .news-card-body {
       display: none;
-      padding: 1.2rem;
+      padding: 1.5rem;
       border-top: 1px solid var(--border);
-      background: #fafafa;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
-    .news-body.open {
+    .news-card-body.open {
       display: block;
     }
 
-    .news-flyer-img {
+    .pub-highlight-box {
+      background: #fdfcf7;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.2rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .event-img {
       max-width: 100%;
-      height: auto;
+      max-height: 380px;
+      object-fit: cover;
       border-radius: 6px;
       border: 1px solid var(--border);
       margin-top: 1rem;
@@ -695,13 +710,11 @@
       <g class="starburst d1" transform="translate(180, 45)">
         <circle cx="0" cy="0" r="28" fill="url(#starCenter)" />
         <path d="M-60,0 L60,0 M0,-60 L0,60 M-35,-35 L35,35 M-35,35 L35,-35" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9" />
-        <path d="M-90,0 L90,0 M0,-90 L0,90" stroke="#FFD866" stroke-width="0.8" opacity="0.6" />
       </g>
 
       <g class="starburst d2" transform="translate(520, 130)">
         <circle cx="0" cy="0" r="35" fill="url(#starCenter)" />
         <path d="M-80,0 L80,0 M0,-80 L0,80 M-45,-45 L45,45 M-45,45 L45,-45" stroke="#FFFFFF" stroke-width="2" opacity="0.95" />
-        <path d="M-110,0 L110,0 M0,-110 L0,110" stroke="#FFE599" stroke-width="1" opacity="0.7" />
       </g>
 
       <g class="starburst d3" transform="translate(820, 55)">
@@ -709,50 +722,20 @@
         <path d="M-70,0 L70,0 M0,-70 L0,70 M-40,-40 L40,40 M-40,40 L40,-40" stroke="#FFFFFF" stroke-width="1.8" opacity="0.9" />
       </g>
 
-      <g class="stardust d1">
-        <circle cx="80" cy="120" r="2" fill="#FFFFFF" opacity="0.8" />
-        <circle cx="120" cy="140" r="1.5" fill="#FFE599" opacity="0.9" />
-        <circle cx="240" cy="30" r="2.5" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="310" cy="160" r="1.8" fill="#FFF5B8" opacity="0.7" />
-        <circle cx="430" cy="70" r="2" fill="#FFFFFF" opacity="0.8" />
-        <circle cx="490" cy="110" r="1.2" fill="#FFE599" opacity="0.85" />
-        <circle cx="610" cy="160" r="2.2" fill="#FFFFFF" opacity="0.9" />
-        <circle cx="680" cy="40" r="1.5" fill="#FFF5B8" opacity="0.75" />
-        <circle cx="750" cy="120" r="2" fill="#FFFFFF" opacity="0.85" />
-        <circle cx="890" cy="140" r="1.8" fill="#FFE599" opacity="0.9" />
-        <circle cx="940" cy="60" r="2.5" fill="#FFFFFF" opacity="0.9" />
-      </g>
-
       <g class="mol-group-left">
         <line x1="60" y1="40" x2="140" y2="90" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="220" y2="50" stroke="#FFD866" stroke-width="3" stroke-linecap="round" />
         <line x1="140" y1="90" x2="160" y2="160" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
-        <line x1="220" y1="50" x2="290" y2="110" stroke="#FFE599" stroke-width="3" stroke-linecap="round" />
-        <line x1="290" y1="110" x2="370" y2="80" stroke="#FFC72C" stroke-width="3" stroke-linecap="round" />
-
         <circle cx="60" cy="40" r="11" fill="url(#goldGlow)" />
         <circle cx="140" cy="90" r="15" fill="url(#goldGlow)" />
         <circle cx="220" cy="50" r="12" fill="url(#goldGlow)" />
-        <circle cx="160" cy="160" r="10" fill="url(#goldGlow)" />
-        <circle cx="290" cy="110" r="14" fill="url(#goldGlow)" />
-        <circle cx="370" cy="80" r="11" fill="url(#goldGlow)" />
       </g>
 
       <g class="mol-group-right">
-        <polygon points="750,40 820,30 870,80 850,140 780,150 730,100" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
-        <line x1="820" y1="30" x2="900" y2="20" stroke="#FFE599" stroke-width="3" />
-        <line x1="870" y1="80" x2="940" y2="110" stroke="#FFC72C" stroke-width="3" />
-        <line x1="850" y1="140" x2="910" y2="180" stroke="#FFD866" stroke-width="3" />
-
+        <polygon points="750,40 820,30 870,80 850,140" fill="none" stroke="#FFC72C" stroke-width="3" stroke-linejoin="round" />
         <circle cx="750" cy="40" r="11" fill="url(#goldGlow)" />
         <circle cx="820" cy="30" r="14" fill="url(#goldGlow)" />
         <circle cx="870" cy="80" r="13" fill="url(#goldGlow)" />
-        <circle cx="850" cy="140" r="12" fill="url(#goldGlow)" />
-        <circle cx="780" cy="150" r="10" fill="url(#goldGlow)" />
-        <circle cx="730" cy="100" r="11" fill="url(#goldGlow)" />
-        <circle cx="900" cy="20" r="9" fill="url(#goldGlow)" />
-        <circle cx="940" cy="110" r="12" fill="url(#goldGlow)" />
-        <circle cx="910" cy="180" r="10" fill="url(#goldGlow)" />
       </g>
     </svg>
 
@@ -776,11 +759,11 @@
           <div class="dropdown-content">
             <button onclick="openTab('project-space')">PROJECT SPACE</button>
             <button onclick="openTab('project-efarms')">PROJECT e-FARMS</button>
-            <button onclick="openTab('project-pi')">PROJECT PI</button>
           </div>
         </div>
 
         <button class="tab-btn" onclick="openTab('publication')">PUBLICATION</button>
+        <button class="tab-btn" onclick="openTab('outreach')">COMMUNITY OUTREACH</button>
         <button class="tab-btn" onclick="openTab('news')">NEWS</button>
         <button class="tab-btn" onclick="openTab('contact')">CONTACT</button>
       </div>
@@ -886,7 +869,7 @@
 
       <h3 class="section-title">Principal Investigator</h3>
       <div class="member-card">
-        <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+        <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="handleImageError(this)">
         <div class="member-info">
           <h4>Dr. Lexi Hwang</h4>
           <div class="member-title"><strong>Lab Director & Principal Investigator</strong> | Associate Professor, California State University, Los Angeles</div>
@@ -897,7 +880,7 @@
       <h3 class="section-title">Doctoral Students</h3>
       <div style="margin-bottom: 2rem;">
         <div class="member-card">
-          <img src="K_Hay_headshot.png" alt="Kyle Hay" class="headshot-img" onerror="this.style.display='none'">
+          <img src="K_Hay_headshot.jpg" alt="Kyle Hay" class="headshot-img" onerror="handleImageError(this)">
           <div class="member-info">
             <h4>Kyle Hay</h4>
             <div class="member-title"><strong>Ph.D. Candidate</strong> | Joint Ph.D. Program, California State University, Los Angeles & University of California, Los Angeles (UCLA)</div>
@@ -906,6 +889,7 @@
         </div>
 
         <div class="member-card">
+          <img src="ashley_headshot.jpg" alt="Ya-Hsuan Ashley Huang" class="headshot-img" onerror="handleImageError(this)">
           <div class="member-info">
             <h4>Ya-Hsuan “Ashley” Huang</h4>
             <div class="member-title"><strong>Ph.D. Candidate</strong> | e-FARMS Research Fellow, California State University, Los Angeles</div>
@@ -917,6 +901,7 @@
       <h3 class="section-title">Undergraduate Students</h3>
       <div style="margin-bottom: 2rem;">
         <div class="member-card">
+          <img src="PL headshot.jpg" alt="Priyanshu Luhar" class="headshot-img" onerror="handleImageError(this)">
           <div class="member-info">
             <h4>Priyanshu Luhar</h4>
             <div class="member-title"><strong>Undergraduate Student Researcher in Computer Science</strong> | California State University, Bakersfield</div>
@@ -925,6 +910,7 @@
         </div>
 
         <div class="member-card">
+          <img src="othon_headshot.jpg" alt="Othon Sanchez" class="headshot-img" onerror="handleImageError(this)">
           <div class="member-info">
             <h4>Othon Sanchez</h4>
             <div class="member-title"><strong>Undergraduate Student in Electrical Engineering</strong> | California State University, Los Angeles</div>
@@ -967,7 +953,7 @@
             <h3 style="margin-top:0;">Faculty Leads & Principal Investigators</h3>
             
             <div class="member-card">
-              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Lexi Hwang</h4>
                 <div class="member-title"><strong>Principal Investigator (PI)</strong> | California State University, Los Angeles</div>
@@ -976,6 +962,7 @@
             </div>
 
             <div class="member-card">
+              <img src="Lhong headshot.jpg" alt="Dr. Leo Hong" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Leo Hong</h4>
                 <div class="member-title"><strong>Co-Lead Principal Investigator (Co-Lead PI)</strong> | Loyola Marymount University</div>
@@ -984,7 +971,7 @@
             </div>
 
             <div class="member-card">
-              <img src="JSantner headshot.png" alt="Dr. Jeffrey Santner" class="headshot-img" onerror="this.style.display='none'">
+              <img src="JSantner headshot.png" alt="Dr. Jeffrey Santner" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Jeffrey Santner</h4>
                 <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | California State University, Los Angeles</div>
@@ -994,6 +981,7 @@
 
             <h4 style="margin-top: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;">Student Researchers</h4>
             <div class="member-card">
+              <img src="PL headshot.jpg" alt="Priyanshu Luhar" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Priyanshu Luhar</h4>
                 <div class="member-title"><strong>Student Researcher</strong></div>
@@ -1036,7 +1024,7 @@
             <h3 style="margin-top: 0;">Faculty Leads</h3>
             
             <div class="member-card">
-              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Lexi Hwang</h4>
                 <div class="member-title"><strong>Principal Investigator (PI)</strong> | California State University, Los Angeles</div>
@@ -1045,6 +1033,7 @@
             </div>
 
             <div class="member-card">
+              <img src="Lhong headshot.jpg" alt="Dr. Leo Hong" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Leo Hong</h4>
                 <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | Loyola Marymount University</div>
@@ -1053,6 +1042,7 @@
             </div>
 
             <div class="member-card">
+              <img src="cliu_headshot.jpg" alt="Dr. Changqi Liu" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Changqi Liu</h4>
                 <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | San Diego State University</div>
@@ -1061,6 +1051,7 @@
             </div>
 
             <div class="member-card">
+              <img src="jzhao_headshot.jpg" alt="Dr. Jing Zhao" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Dr. Jing Zhao</h4>
                 <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | San Diego State University</div>
@@ -1070,8 +1061,8 @@
 
             <h3 style="margin-top: 1.5rem;">Student Fellows & Researchers</h3>
             
-            <!-- Student Placeholders (1 through 8) -->
             <div class="member-card">
+              <img src="student1.jpg" alt="Student Fellow 1" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 1</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1081,6 +1072,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student2.jpg" alt="Student Fellow 2" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 2</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1090,6 +1082,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student3.jpg" alt="Student Fellow 3" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 3</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1099,6 +1092,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student4.jpg" alt="Student Fellow 4" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 4</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1108,6 +1102,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student5.jpg" alt="Student Fellow 5" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 5</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1117,6 +1112,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student6.jpg" alt="Student Fellow 6" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 6</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1126,6 +1122,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student7.jpg" alt="Student Fellow 7" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 7</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1135,6 +1132,7 @@
             </div>
 
             <div class="member-card">
+              <img src="student8.jpg" alt="Student Fellow 8" class="headshot-img" onerror="handleImageError(this)">
               <div class="member-info">
                 <h4>Student Fellow Placeholder 8</h4>
                 <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
@@ -1156,47 +1154,6 @@
       </div>
     </section>
 
-    <!-- Project Sub-Page 3: Project PI -->
-    <section id="project-pi" class="tab-content">
-      <h2>Project PI Initiatives</h2>
-      <div class="project-layout">
-        <div class="project-sidebar">
-          <button class="active" onclick="switchProjectSub('pi', 'overview', this)">Overview</button>
-          <button onclick="switchProjectSub('pi', 'team', this)">Project Team</button>
-          <button onclick="switchProjectSub('pi', 'outcomes', this)">Activities & Outcome</button>
-          <button onclick="switchProjectSub('pi', 'news', this)">News</button>
-        </div>
-        <div class="project-main-content">
-          <div id="pi-overview" class="sub-section active card">
-            <span class="project-tag tag-active">Awarded (2025–2026)</span>
-            <h3>An Exploratory Case Study: Building STEM Identity and Motivation in Pre-College Students Through Virtual Simulations</h3>
-            <p class="project-single-line"><strong>Project / Award Number:</strong> CSU RCSA Award (2025–2026 Release Time Category)</p>
-            <p class="project-single-line"><strong>Funding Agency:</strong> California State University Office of the Chancellor</p>
-            <hr style="border: none; border-top: 1px solid #eee; margin: 1rem 0;">
-            <span class="project-tag tag-active">Awarded (2022–2023)</span>
-            <h3>Exploring Early Career Teachers Well-Being, Job Satisfaction, and Retention</h3>
-            <p class="project-single-line"><strong>Project / Award Number:</strong> Special Project Round #9</p>
-            <p class="project-single-line"><strong>Funding Agency:</strong> College of Education, California State University, Los Angeles</p>
-            <p class="project-single-line"><strong>Award Amount:</strong> $6,880</p>
-          </div>
-          <div id="pi-team" class="sub-section card">
-            <h3>Project Team & Affiliations</h3>
-            <ul class="member-list">
-              <li>Dr. Lexi Hwang (Principal Investigator; PI): College of Education, California State University, Los Angeles</li>
-            </ul>
-          </div>
-          <div id="pi-outcomes" class="sub-section card">
-            <h3>Activities & Outcomes</h3>
-            <p class="project-single-line">Research findings, teacher surveys, and simulation development milestones.</p>
-          </div>
-          <div id="pi-news" class="sub-section card">
-            <h3>Project News</h3>
-            <p class="project-single-line">Updates regarding internal CSU grant initiatives and awards.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Tab 5: Publication -->
     <section id="publication" class="tab-content">
       <h2>Publications & Scholarly Works</h2>
@@ -1208,7 +1165,7 @@
       <h3 class="section-title">Refereed Journal Articles</h3>
       <ul class="pub-list">
         <li>Campbell, V., Zulawski-Riccio, J., & Hwang, L. (2026). The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).</li>
-        <li>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026). Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Education Sciences</em> (Accepted).</li>
+        <li>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026). Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).</li>
         <li>*Hwang, L., Santner, J., Meyerott, T., Liang, M.†, Sanchez, O., Patil, I.†, … *Hong, S.L. (2026). Quadratic Growth Modeling of Stoichiometry Learning in College Students Using Reactive Molecular Dynamic Simulations Based Instruction. <em>Journal of Research in Science Teaching</em> (Under Review).</li>
         <li>Ramiz, R., Luhar, P.†, Hwang, L., Zhao, J., Liu, C., Meyerott, T., & Hong, S.L. (2026). SoPIP2;1 Aquaporin under Water and Salt Stress Conditions: A Molecular Dynamics Study Guided by Science Pedagogy (Under Review).</li>
 
@@ -1250,16 +1207,134 @@
       </ul>
     </section>
 
-    <!-- Tab 6: News -->
+    <!-- Community Outreach Tab -->
+    <section id="outreach" class="tab-content">
+      <h2>Community Outreach & Events</h2>
+      <p style="color: #555; margin-bottom: 1.5rem;">Click on any outreach event to expand details, view photo galleries, and read descriptions.</p>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-welcome">COMMUNITY EVENT</span>
+              <span class="news-date-text">Spring 2026</span>
+            </div>
+            <div class="news-headline">K-12 Inclusive STEM Learning Workshops</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
+          <p>The CATALYST Lab hosts interactive STEM outreach workshops for local K-12 students, introducing engaging hands-on experiments, computational simulations, and inspiring scientific inquiry.</p>
+          <img src="outreach_event1.png" alt="K-12 STEM Workshop Event Photo" class="event-img" onerror="handleImageError(this)">
+        </div>
+      </div>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-welcome">STUDENT SHOWCASE</span>
+              <span class="news-date-text">Fall 2025</span>
+            </div>
+            <div class="news-headline">USDA e-FARMS Trainees Student Showcase & Research Exhibition</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
+          <p>Our USDA e-FARMS student fellows presented their research posters on reactive molecular dynamics in food science and agricultural education during our annual research symposium.</p>
+          <img src="outreach_event2.png" alt="e-FARMS Student Showcase Event Photo" class="event-img" onerror="handleImageError(this)">
+        </div>
+      </div>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-welcome">SEMINAR</span>
+              <span class="news-date-text">Summer 2025</span>
+            </div>
+            <div class="news-headline">Community Educator STEM Pedagogy Seminar</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
+          <p>A professional development seminar collaborating with local educators to implement evidence-based, inclusive STEM teaching strategies and accessible classroom technologies.</p>
+          <img src="outreach_event3.png" alt="Community Educator STEM Seminar Photo" class="event-img" onerror="handleImageError(this)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 6: News Feed -->
     <section id="news" class="tab-content">
       <h2>Lab News & Announcements</h2>
 
-      <div class="news-item">
-        <div class="news-header" onclick="toggleNews(this)">
-          <span class="news-title">Recruitment: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</span>
-          <span class="news-date">AUG 2026</span>
+      <div class="news-card-fancy hero-post">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-welcome">FEATURED ANNOUNCEMENT</span>
+              <span class="news-date-text">August 2026</span>
+            </div>
+            <div class="news-headline">Welcome to the Official CATALYST Lab Website!</div>
+          </div>
+          <span class="chevron-icon open">▼</span>
         </div>
-        <div class="news-body">
+        <div class="news-card-body open">
+          <p>We are thrilled to announce the official launch of the <strong>CATALYST Lab website</strong>! Founded and directed by Dr. Lexi Hwang, our lab advances innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development.</p>
+          <p>Explore our active research projects (including NSF-funded <em>Project SPACE</em> and USDA-funded <em>Project e-FARMS</em>), scholarly publication archive, student training fellowships, and community outreach initiatives across California State University, Los Angeles and partner institutions.</p>
+        </div>
+      </div>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
+              <span class="news-date-text">May 2026</span>
+            </div>
+            <div class="news-headline">New Publication Accepted in the Journal of Research in Science Teaching (JRST)</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
+          <p>Congratulations to Dr. Lexi Hwang and collaborators Dr. Vandeen Campbell and Dr. Julia Zulawski-Riccio on the acceptance of their manuscript in the premier <strong>Journal of Research in Science Teaching</strong>!</p>
+          <div class="pub-highlight-box">
+            <strong>Campbell, V., Zulawski-Riccio, J., & Hwang, L. (2026).</strong> The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).
+          </div>
+        </div>
+      </div>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
+              <span class="news-date-text">May 2026</span>
+            </div>
+            <div class="news-headline">New Publication Accepted in the Journal of Special Education (JSE)</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
+          <p>We are excited to share that a new collaborative study on mathematical problem-solving error analysis has been accepted for publication in the <strong>Journal of Special Education</strong>!</p>
+          <div class="pub-highlight-box">
+            <strong>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026).</strong> Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).
+          </div>
+        </div>
+      </div>
+
+      <div class="news-card-fancy">
+        <div class="news-card-header" onclick="toggleNewsCard(this)">
+          <div>
+            <div class="news-meta-group">
+              <span class="news-badge badge-recruitment">RECRUITMENT</span>
+              <span class="news-date-text">August 2026</span>
+            </div>
+            <div class="news-headline">Recruitment Open: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</div>
+          </div>
+          <span class="chevron-icon">▼</span>
+        </div>
+        <div class="news-card-body">
           <p>We are recruiting student fellows for the <strong>USDA-Funded STEM Education Research Training Fellowship</strong> for Fall 2026!</p>
           <ul class="member-list">
             <li><strong>About:</strong> Selected trainees will work closely with Dr. Lexi Hwang (PI) and an interdisciplinary team across Cal State LA, CSUB, SDSU, and LMU. The research examines molecular simulation-based learning in food science education and its impact on college students' STEM knowledge, identity, and motivation.</li>
@@ -1267,27 +1342,7 @@
             <li><strong>Commitment:</strong> ~3–5 hours per week during Fall 2026.</li>
             <li><strong>Application Deadline:</strong> <strong>August 21, 2026</strong>. Submit CV and a 1-paragraph statement of interest to Dr. Lexi Hwang at <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a>.</li>
           </ul>
-          <img src="STEM Ed Fellowship Recruitment.png" alt="USDA STEM Education Research Training Fellowship Recruitment Flyer" class="news-flyer-img" onerror="this.style.display='none'">
-        </div>
-      </div>
-
-      <div class="news-item">
-        <div class="news-header" onclick="toggleNews(this)">
-          <span class="news-title">Welcome to the CATALYST Lab Website!</span>
-          <span class="news-date">AUG 2026</span>
-        </div>
-        <div class="news-body">
-          <p>We are excited to launch the official CATALYST Lab website! Explore our research projects, scholarly publications, team members, and interdisciplinary STEM initiatives.</p>
-        </div>
-      </div>
-
-      <div class="news-item">
-        <div class="news-header" onclick="toggleNews(this)">
-          <span class="news-title">New Journal Articles Accepted in JRST and JSE</span>
-          <span class="news-date">MAY 2026</span>
-        </div>
-        <div class="news-body">
-          <p>Congratulations to Dr. Lexi Hwang and collaborators on their upcoming papers accepted in the <em>Journal of Research in Science Teaching</em> and the <em>Journal of Special Education</em>!</p>
+          <img src="STEM Ed Fellowship Recruitment.png" alt="USDA STEM Education Research Training Fellowship Recruitment Flyer" class="event-img" onerror="handleImageError(this)">
         </div>
       </div>
     </section>
@@ -1356,9 +1411,22 @@
       btnElement.classList.add('active');
     }
 
-    function toggleNews(headerElement) {
-      const body = headerElement.nextElementSibling;
-      body.classList.toggle('open');
+    function toggleNewsCard(headerElement) {
+      const cardBody = headerElement.nextElementSibling;
+      const chevron = headerElement.querySelector('.chevron-icon');
+      
+      cardBody.classList.toggle('open');
+      if (chevron) {
+        chevron.classList.toggle('open');
+      }
+    }
+
+    /* Fallback Handler for Missing Images */
+    function handleImageError(imgElement) {
+      const placeholder = document.createElement('div');
+      placeholder.className = 'no-image-placeholder';
+      placeholder.innerHTML = '<span>📷</span>No Image';
+      imgElement.parentNode.replaceChild(placeholder, imgElement);
     }
   </script>
 
