@@ -395,13 +395,170 @@
       color: var(--primary);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+    /* --- RESEARCH PILLARS DESIGN --- */
+    .research-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      gap: 2rem;
     }
 
+    .research-header-text {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      color: #c99200;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .main-heading {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 1rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .heading-subtext {
+      font-size: 1.1rem;
+      color: #555555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .venn-diagram-svg {
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .research-header {
+        flex-direction: column;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .venn-diagram-svg {
+        display: none;
+      }
+    }
+
+    .pillar-card-modern {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid var(--accent);
+      padding: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pillar-card-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    .pillar-body {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .pillar-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.8rem;
+    }
+
+    .bg-yellow { background-color: #fef9e7; }
+    .bg-blue { background-color: #ebf5ff; }
+    .bg-purple { background-color: #f3e8ff; }
+    .bg-green { background-color: #e6f4ea; }
+
+    .pillar-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.2rem 0;
+      line-height: 1.3;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .pillar-subtitle-gold {
+      color: #d97706;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pillar-desc {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .pillar-link {
+      font-weight: 700;
+      color: #0f172a;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .pillar-link:hover {
+      color: #d97706;
+    }
+
+    .pillars-footer-callout {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      color: #475569;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .pillars-footer-callout strong {
+      color: #0f172a;
+    }
+
+    .footer-icon {
+      display: block;
+      margin: 0 auto 0.5rem auto;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* General Styling */
     .card {
       background: var(--card-bg);
       padding: 1.5rem;
@@ -441,33 +598,6 @@
       font-size: 0.93rem;
       margin: 0;
       line-height: 1.6;
-    }
-
-    .pillar-card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--accent);
-    }
-
-    .pillar-icon {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .pillar-card h3 {
-      margin: 0.2rem 0;
-      font-size: 1.15rem;
-      color: var(--primary);
-    }
-
-    .pillar-subtitle {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #666;
-      margin-bottom: 0.8rem;
     }
 
     .project-tag {
@@ -763,8 +893,16 @@
         </div>
 
         <button class="tab-btn" onclick="openTab('publication')">PUBLICATION</button>
-        <button class="tab-btn" onclick="openTab('outreach')">COMMUNITY OUTREACH</button>
-        <button class="tab-btn" onclick="openTab('news')">NEWS</button>
+
+        <!-- News Dropdown Menu -->
+        <div class="dropdown">
+          <button class="dropbtn">NEWS ▼</button>
+          <div class="dropdown-content">
+            <button onclick="openTab('news-sub', 'feed')">NEWS</button>
+            <button onclick="openTab('news-sub', 'events')">EVENT</button>
+          </div>
+        </div>
+
         <button class="tab-btn" onclick="openTab('contact')">CONTACT</button>
       </div>
     </div>
@@ -788,14 +926,14 @@
         <div class="dashboard-col">
           <h3 class="dashboard-col-title">
             <span>📢 Recent News & Opportunities</span>
-            <button class="btn-action secondary" onclick="openTab('news')">View All</button>
+            <button class="btn-action secondary" onclick="openTab('news-sub', 'feed')">View All</button>
           </h3>
 
           <div class="dash-item highlight">
             <span class="dash-item-date">August 2026</span>
             <div class="dash-item-title">USDA STEM Fellowship Recruitment</div>
             <div class="dash-item-desc">We are recruiting student fellows for the USDA-funded STEM education research training fellowship for Fall 2026.</div>
-            <button class="btn-action" onclick="openTab('news')">Apply / Read Announcement</button>
+            <button class="btn-action" onclick="openTab('news-sub', 'feed')">Apply / Read Announcement</button>
           </div>
 
           <div class="dash-item">
@@ -831,53 +969,105 @@
 
     <!-- Tab 2: Research Pillar -->
     <section id="research" class="tab-content">
-      <h2>Research Pillars</h2>
-      <div class="grid">
-        <div class="pillar-card">
-          <span class="pillar-icon">🔬</span>
-          <h3>STEM TEACHING & LEARNING</h3>
-          <div class="pillar-subtitle">Innovative & Evidence-Based STEM Pedagogy</div>
-          <p>Investigating evidence-based and innovative approaches to STEM teaching and learning that strengthen conceptual understanding, problem solving, engagement, and academic success across diverse educational settings.</p>
+      <div class="research-header">
+        <div class="research-header-text">
+          <span class="eyebrow">OUR RESEARCH</span>
+          <h2 class="main-heading">Four interconnected pillars</h2>
+          <p class="heading-subtext">Our research examines how people learn, participate, and thrive in STEM—and how emerging technologies and inclusive practices can expand those opportunities.</p>
         </div>
 
-        <div class="pillar-card">
-          <span class="pillar-icon">💡</span>
-          <h3>STEM IDENTITY & PARTICIPATION</h3>
-          <div class="pillar-subtitle">Identity, Motivation & STEM Pathways</div>
-          <p>Examining how STEM learning experiences shape students’ identity, motivation, belonging, persistence, and pathways into and through STEM, with particular attention to expanding meaningful participation and opportunity.</p>
+        <!-- Four Interlocking Circles Motif (Venn Diagram) -->
+        <svg class="venn-diagram-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="55" r="32" fill="none" stroke="#f59e0b" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="105" cy="80" r="32" fill="none" stroke="#6366f1" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="80" cy="105" r="32" fill="none" stroke="#10b981" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="55" cy="80" r="32" fill="none" stroke="#8b5cf6" stroke-width="1.2" opacity="0.6"/>
+          <circle cx="80" cy="80" r="5" fill="#d97706" />
+        </svg>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card-modern">
+          <div class="pillar-body">
+            <div class="pillar-icon-wrapper bg-yellow">🔬</div>
+            <div>
+              <h3 class="pillar-title">STEM TEACHING & LEARNING</h3>
+              <div class="pillar-subtitle-gold">Evidence-Based & Innovative Pedagogy</div>
+              <p class="pillar-desc">Advancing STEM teaching and learning through evidence-based practices that strengthen conceptual understanding, problem solving, engagement, and student success.</p>
+            </div>
+          </div>
+          <a href="#research" class="pillar-link">Explore this pillar &rarr;</a>
         </div>
 
-        <div class="pillar-card">
-          <span class="pillar-icon">🤖</span>
-          <h3>INNOVATION & EMERGING TECHNOLOGIES</h3>
-          <div class="pillar-subtitle">Simulation, AI & Immersive Learning</div>
-          <p>Exploring how computational simulations, modeling, artificial intelligence, AR/VR, and other emerging technologies can create engaging and transformative STEM learning and research experiences.</p>
+        <!-- Pillar 2 -->
+        <div class="pillar-card-modern">
+          <div class="pillar-body">
+            <div class="pillar-icon-wrapper bg-blue">👤</div>
+            <div>
+              <h3 class="pillar-title">STEM IDENTITY & PARTICIPATION</h3>
+              <div class="pillar-subtitle-gold">Identity, Motivation & STEM Pathways</div>
+              <p class="pillar-desc">Examining how identity, motivation, belonging, and persistence shape participation and pathways into and through STEM.</p>
+            </div>
+          </div>
+          <a href="#research" class="pillar-link">Explore this pillar &rarr;</a>
         </div>
 
-        <div class="pillar-card">
-          <span class="pillar-icon">🌐</span>
-          <h3>INCLUSION & ACCESS</h3>
-          <div class="pillar-subtitle">Inclusive & Interdisciplinary STEM Education</div>
-          <p>Developing and studying inclusive, interdisciplinary approaches that broaden access to high-quality STEM learning and support diverse learners across K–12, postsecondary, and educator preparation contexts.</p>
+        <!-- Pillar 3 -->
+        <div class="pillar-card-modern">
+          <div class="pillar-body">
+            <div class="pillar-icon-wrapper bg-purple">🤖</div>
+            <div>
+              <h3 class="pillar-title">INNOVATION & EMERGING TECHNOLOGIES</h3>
+              <div class="pillar-subtitle-gold">AI, Simulation & Immersive Learning</div>
+              <p class="pillar-desc">Exploring how AI, computational modeling, simulation, AR/VR, and emerging technologies can transform STEM learning and research experiences.</p>
+            </div>
+          </div>
+          <a href="#research" class="pillar-link">Explore this pillar &rarr;</a>
         </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card-modern">
+          <div class="pillar-body">
+            <div class="pillar-icon-wrapper bg-green">🌐</div>
+            <div>
+              <h3 class="pillar-title">INCLUSION & ACCESS</h3>
+              <div class="pillar-subtitle-gold">Inclusive & Interdisciplinary STEM Education</div>
+              <p class="pillar-desc">Developing inclusive and interdisciplinary approaches that expand access to high-quality STEM learning across K–12, postsecondary, and educator preparation settings.</p>
+            </div>
+          </div>
+          <a href="#research" class="pillar-link">Explore this pillar &rarr;</a>
+        </div>
+      </div>
+
+      <div class="pillars-footer-callout">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2">
+          <circle cx="12" cy="6" r="3"/>
+          <circle cx="6" cy="18" r="3"/>
+          <circle cx="18" cy="18" r="3"/>
+          <line x1="12" y1="9" x2="6" y2="15"/>
+          <line x1="12" y1="9" x2="18" y2="15"/>
+        </svg>
+        These pillars are deeply interconnected and inform one another.<br>
+        <strong>Together, they drive our mission to create equitable and transformative STEM education.</strong>
       </div>
     </section>
 
     <!-- Tab 3: Team -->
     <section id="team" class="tab-content">
-      <h2>CATALYST Lab Members</h2>
+      <h2>CATALYST Team</h2>
 
       <h3 class="section-title">Principal Investigator</h3>
       <div class="member-card">
         <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="handleImageError(this)">
         <div class="member-info">
-          <h4>Dr. Lexi Hwang, Ph.D</h4>
+          <h4>Dr. Lexi Hwang</h4>
           <div class="member-title"><strong>Lab Director & Principal Investigator</strong> | Associate Professor, California State University, Los Angeles</div>
           <p class="member-interests">Dr. Lexi Hwang is an Associate Professor at California State University, Los Angeles and the founder and director of the CATALYST Lab. She earned her Ph.D. in Special Education from The Pennsylvania State University, with interdisciplinary training in mathematics education, learning difficulties, and educational statistics. Her research focuses on innovative and inclusive STEM education, evidence-based instructional practices, and interdisciplinary approaches to improving STEM teaching and learning. Her current work also explores the integration of computational simulations, AI, and emerging technologies to enhance STEM learning experiences. As Principal Investigator of federally and institutionally funded projects, Dr. Hwang leads collaborative research and student training initiatives that bridge education, science, and engineering to advance STEM learning and broaden participation.</p>
         </div>
       </div>
 
-      <h3 class="section-title">Graduate Students</h3>
+      <h3 class="section-title">Doctoral Students</h3>
       <div style="margin-bottom: 2rem;">
         <div class="member-card">
           <img src="K_Hay_headshot.jpg" alt="Kyle Hay" class="headshot-img" onerror="handleImageError(this)">
@@ -892,7 +1082,7 @@
           <img src="ashley_headshot.jpg" alt="Ya-Hsuan Ashley Huang" class="headshot-img" onerror="handleImageError(this)">
           <div class="member-info">
             <h4>Ya-Hsuan “Ashley” Huang</h4>
-            <div class="member-title"><strong>Ph.D. Candidate</strong> | Joint Ph.D. Program, California State University, Los Angeles & University of California, Los Angeles (UCLA)</div>
+            <div class="member-title"><strong>Ph.D. Candidate</strong> | e-FARMS Research Fellow, California State University, Los Angeles</div>
             <p class="member-interests"><strong>Research Interests:</strong> </p>
           </div>
         </div>
@@ -1207,142 +1397,152 @@
       </ul>
     </section>
 
-    <!-- Community Outreach Tab -->
-    <section id="outreach" class="tab-content">
-      <h2>Community Outreach & Events</h2>
-      <p style="color: #555; margin-bottom: 1.5rem;">Click on any outreach event to expand details, view photo galleries, and read descriptions.</p>
-
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-welcome">COMMUNITY EVENT</span>
-              <span class="news-date-text">Spring 2026</span>
+    <!-- Tab 6: News & Events (Combined Sub-Page Section) -->
+    <section id="news-sub" class="tab-content">
+      <h2>News & Events</h2>
+      <div class="project-layout">
+        <div class="project-sidebar">
+          <button id="btn-news-feed" class="active" onclick="switchProjectSub('news-sub', 'feed', this)">News</button>
+          <button id="btn-news-events" onclick="switchProjectSub('news-sub', 'events', this)">Event</button>
+        </div>
+        
+        <div class="project-main-content">
+          <!-- News Sub-Tab -->
+          <div id="news-sub-feed" class="sub-section active">
+            <div class="news-card-fancy hero-post">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-welcome">FEATURED ANNOUNCEMENT</span>
+                    <span class="news-date-text">August 2026</span>
+                  </div>
+                  <div class="news-headline">Welcome to the Official CATALYST Lab Website!</div>
+                </div>
+                <span class="chevron-icon open">▼</span>
+              </div>
+              <div class="news-card-body open">
+                <p>We are thrilled to announce the official launch of the <strong>CATALYST Lab website</strong>! Founded and directed by Dr. Lexi Hwang, our lab advances innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development.</p>
+                <p>Explore our active research projects (including NSF-funded <em>Project SPACE</em> and USDA-funded <em>Project e-FARMS</em>), scholarly publication archive, student training fellowships, and community outreach initiatives across California State University, Los Angeles and partner institutions.</p>
+              </div>
             </div>
-            <div class="news-headline">K-12 Inclusive STEM Learning Workshops</div>
-          </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>The CATALYST Lab hosts interactive STEM outreach workshops for local K-12 students, introducing engaging hands-on experiments, computational simulations, and inspiring scientific inquiry.</p>
-          <img src="outreach_event1.png" alt="K-12 STEM Workshop Event Photo" class="event-img" onerror="handleImageError(this)">
-        </div>
-      </div>
 
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-welcome">STUDENT SHOWCASE</span>
-              <span class="news-date-text">Fall 2025</span>
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
+                    <span class="news-date-text">May 2026</span>
+                  </div>
+                  <div class="news-headline">New Publication Accepted in the Journal of Research in Science Teaching (JRST)</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>Congratulations to Dr. Lexi Hwang and collaborators Dr. Vandeen Campbell and Dr. Julia Zulawski-Riccio on the acceptance of their manuscript in the premier <strong>Journal of Research in Science Teaching</strong>!</p>
+                <div class="pub-highlight-box">
+                  <strong>Campbell, V., Zulawski-Riccio, J., & Hwang, L. (2026).</strong> The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).
+                </div>
+              </div>
             </div>
-            <div class="news-headline">USDA e-FARMS Trainees Student Showcase & Research Exhibition</div>
-          </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>Our USDA e-FARMS student fellows presented their research posters on reactive molecular dynamics in food science and agricultural education during our annual research symposium.</p>
-          <img src="outreach_event2.png" alt="e-FARMS Student Showcase Event Photo" class="event-img" onerror="handleImageError(this)">
-        </div>
-      </div>
 
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-welcome">SEMINAR</span>
-              <span class="news-date-text">Summer 2025</span>
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
+                    <span class="news-date-text">May 2026</span>
+                  </div>
+                  <div class="news-headline">New Publication Accepted in the Journal of Special Education (JSE)</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>We are excited to share that a new collaborative study on mathematical problem-solving error analysis has been accepted for publication in the <strong>Journal of Special Education</strong>!</p>
+                <div class="pub-highlight-box">
+                  <strong>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026).</strong> Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).
+                </div>
+              </div>
             </div>
-            <div class="news-headline">Community Educator STEM Pedagogy Seminar</div>
-          </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>A professional development seminar collaborating with local educators to implement evidence-based, inclusive STEM teaching strategies and accessible classroom technologies.</p>
-          <img src="outreach_event3.png" alt="Community Educator STEM Seminar Photo" class="event-img" onerror="handleImageError(this)">
-        </div>
-      </div>
-    </section>
 
-    <!-- Tab 6: News Feed -->
-    <section id="news" class="tab-content">
-      <h2>Lab News & Announcements</h2>
-
-      <div class="news-card-fancy hero-post">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-welcome">FEATURED ANNOUNCEMENT</span>
-              <span class="news-date-text">August 2026</span>
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-recruitment">RECRUITMENT</span>
+                    <span class="news-date-text">August 2026</span>
+                  </div>
+                  <div class="news-headline">Recruitment Open: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>We are recruiting student fellows for the <strong>USDA-Funded STEM Education Research Training Fellowship</strong> for Fall 2026!</p>
+                <ul class="member-list">
+                  <li><strong>About:</strong> Selected trainees will work closely with Dr. Lexi Hwang (PI) and an interdisciplinary team across Cal State LA, CSUB, SDSU, and LMU. The research examines molecular simulation-based learning in food science education and its impact on college students' STEM knowledge, identity, and motivation.</li>
+                  <li><strong>Benefits:</strong> $1,000 stipend upon completion, Certificate of Research Training, and opportunities to co-author conference proceedings and journal publications.</li>
+                  <li><strong>Commitment:</strong> ~3–5 hours per week during Fall 2026.</li>
+                  <li><strong>Application Deadline:</strong> <strong>August 21, 2026</strong>. Submit CV and a 1-paragraph statement of interest to Dr. Lexi Hwang at <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a>.</li>
+                </ul>
+                <img src="STEM Ed Fellowship Recruitment.png" alt="USDA STEM Education Research Training Fellowship Recruitment Flyer" class="event-img" onerror="handleImageError(this)">
+              </div>
             </div>
-            <div class="news-headline">Welcome to the Official CATALYST Lab Website!</div>
           </div>
-          <span class="chevron-icon open">▼</span>
-        </div>
-        <div class="news-card-body open">
-          <p>We are thrilled to announce the official launch of the <strong>CATALYST Lab website</strong>! Founded and directed by Dr. Lexi Hwang, our lab advances innovative and inclusive STEM education through interdisciplinary research on teaching, learning, and student development.</p>
-          <p>Explore our active research projects (including NSF-funded <em>Project SPACE</em> and USDA-funded <em>Project e-FARMS</em>), scholarly publication archive, student training fellowships, and community outreach initiatives across California State University, Los Angeles and partner institutions.</p>
-        </div>
-      </div>
 
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
-              <span class="news-date-text">May 2026</span>
-            </div>
-            <div class="news-headline">New Publication Accepted in the Journal of Research in Science Teaching (JRST)</div>
-          </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>Congratulations to Dr. Lexi Hwang and collaborators Dr. Vandeen Campbell and Dr. Julia Zulawski-Riccio on the acceptance of their manuscript in the premier <strong>Journal of Research in Science Teaching</strong>!</p>
-          <div class="pub-highlight-box">
-            <strong>Campbell, V., Zulawski-Riccio, J., & Hwang, L. (2026).</strong> The Role of Science Course Pathways in Shaping College Enrollment: Insight from A Large Urban School District. <em>Journal of Research in Science Teaching</em> (Accepted).
-          </div>
-        </div>
-      </div>
+          <!-- Events Sub-Tab -->
+          <div id="news-sub-events" class="sub-section">
+            <p style="color: #555; margin-bottom: 1.5rem;">Click on any event to expand details and descriptions.</p>
 
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-pub">JOURNAL ACCEPTANCE</span>
-              <span class="news-date-text">May 2026</span>
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-welcome">COMMUNITY EVENT</span>
+                    <span class="news-date-text">Spring 2026</span>
+                  </div>
+                  <div class="news-headline">K-12 Inclusive STEM Learning Workshops</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>The CATALYST Lab hosts interactive STEM outreach workshops for local K-12 students, introducing engaging hands-on experiments, computational simulations, and inspiring scientific inquiry.</p>
+                <img src="outreach_event1.png" alt="K-12 STEM Workshop Event Photo" class="event-img" onerror="handleImageError(this)">
+              </div>
             </div>
-            <div class="news-headline">New Publication Accepted in the Journal of Special Education (JSE)</div>
-          </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>We are excited to share that a new collaborative study on mathematical problem-solving error analysis has been accepted for publication in the <strong>Journal of Special Education</strong>!</p>
-          <div class="pub-highlight-box">
-            <strong>Choo, S., Hwang, L., Quanbeck, M., & Song, K. (2026).</strong> Understanding Mathematical Problem-Solving Errors of Students with Disabilities: Complementary Insights from Written Test and Dynamic Assessment. <em>Journal of Special Education</em> (Accepted).
-          </div>
-        </div>
-      </div>
 
-      <div class="news-card-fancy">
-        <div class="news-card-header" onclick="toggleNewsCard(this)">
-          <div>
-            <div class="news-meta-group">
-              <span class="news-badge badge-recruitment">RECRUITMENT</span>
-              <span class="news-date-text">August 2026</span>
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-welcome">STUDENT SHOWCASE</span>
+                    <span class="news-date-text">Fall 2025</span>
+                  </div>
+                  <div class="news-headline">USDA e-FARMS Trainees Student Showcase & Research Exhibition</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>Our USDA e-FARMS student fellows presented their research posters on reactive molecular dynamics in food science and agricultural education during our annual research symposium.</p>
+                <img src="outreach_event2.png" alt="e-FARMS Student Showcase Event Photo" class="event-img" onerror="handleImageError(this)">
+              </div>
             </div>
-            <div class="news-headline">Recruitment Open: USDA-Funded STEM Education Research Training Fellowship (Fall 2026)</div>
+
+            <div class="news-card-fancy">
+              <div class="news-card-header" onclick="toggleNewsCard(this)">
+                <div>
+                  <div class="news-meta-group">
+                    <span class="news-badge badge-welcome">SEMINAR</span>
+                    <span class="news-date-text">Summer 2025</span>
+                  </div>
+                  <div class="news-headline">Community Educator STEM Pedagogy Seminar</div>
+                </div>
+                <span class="chevron-icon">▼</span>
+              </div>
+              <div class="news-card-body">
+                <p>A professional development seminar collaborating with local educators to implement evidence-based, inclusive STEM teaching strategies and accessible classroom technologies.</p>
+                <img src="outreach_event3.png" alt="Community Educator STEM Seminar Photo" class="event-img" onerror="handleImageError(this)">
+              </div>
+            </div>
           </div>
-          <span class="chevron-icon">▼</span>
-        </div>
-        <div class="news-card-body">
-          <p>We are recruiting student fellows for the <strong>USDA-Funded STEM Education Research Training Fellowship</strong> for Fall 2026!</p>
-          <ul class="member-list">
-            <li><strong>About:</strong> Selected trainees will work closely with Dr. Lexi Hwang (PI) and an interdisciplinary team across Cal State LA, CSUB, SDSU, and LMU. The research examines molecular simulation-based learning in food science education and its impact on college students' STEM knowledge, identity, and motivation.</li>
-            <li><strong>Benefits:</strong> $1,000 stipend upon completion, Certificate of Research Training, and opportunities to co-author conference proceedings and journal publications.</li>
-            <li><strong>Commitment:</strong> ~3–5 hours per week during Fall 2026.</li>
-            <li><strong>Application Deadline:</strong> <strong>August 21, 2026</strong>. Submit CV and a 1-paragraph statement of interest to Dr. Lexi Hwang at <a href="mailto:jhwang31@calstatela.edu" class="email-link">jhwang31@calstatela.edu</a>.</li>
-          </ul>
-          <img src="STEM Ed Fellowship Recruitment.png" alt="USDA STEM Education Research Training Fellowship Recruitment Flyer" class="event-img" onerror="handleImageError(this)">
         </div>
       </div>
     </section>
@@ -1378,7 +1578,7 @@
   </footer>
 
   <script>
-    function openTab(tabId) {
+    function openTab(tabId, subTabId) {
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
 
@@ -1392,23 +1592,30 @@
         targetContent.classList.add('active');
       }
 
-      if (tabId.startsWith('project-')) {
-        document.querySelector('.dropdown').classList.add('active');
+      if (tabId.startsWith('project-') || tabId.startsWith('news-')) {
+        const parentDropdown = event && event.currentTarget ? event.currentTarget.closest('.dropdown') : null;
+        if (parentDropdown) parentDropdown.classList.add('active');
       } else if (window.event && window.event.currentTarget) {
         window.event.currentTarget.classList.add('active');
+      }
+
+      if (subTabId && tabId === 'news-sub') {
+        const subBtn = document.getElementById('btn-news-' + subTabId);
+        if (subBtn) switchProjectSub('news-sub', subTabId, subBtn);
       }
     }
 
     function switchProjectSub(projectKey, subTab, btnElement) {
-      const parentSection = document.getElementById('project-' + projectKey);
+      const parentSection = document.getElementById(projectKey);
       const subSections = parentSection.querySelectorAll('.sub-section');
       subSections.forEach(sec => sec.classList.remove('active'));
 
       const sidebarButtons = parentSection.querySelectorAll('.project-sidebar button');
       sidebarButtons.forEach(btn => btn.classList.remove('active'));
 
-      document.getElementById(projectKey + '-' + subTab).classList.add('active');
-      btnElement.classList.add('active');
+      const targetSub = document.getElementById(projectKey + '-' + subTab);
+      if (targetSub) targetSub.classList.add('active');
+      if (btnElement) btnElement.classList.add('active');
     }
 
     function toggleNewsCard(headerElement) {
