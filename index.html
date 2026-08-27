@@ -399,11 +399,11 @@
       }
     }
 
-    /* Headshot Styling */
+    /* Headshot Styling - Updated to Square with Subtle Rounded Corners */
     .headshot-img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      border-radius: 8px; /* Square with soft edges so the entire head/face fits clearly */
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -450,9 +450,9 @@
       border-radius: 6px;
       border: 1px solid var(--border);
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
       align-items: flex-start;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .member-info {
@@ -462,19 +462,19 @@
     .member-info h4 {
       margin: 0 0 0.2rem 0;
       color: var(--primary);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
 
     .member-title {
       color: #666;
-      font-size: 0.9rem;
-      margin: 0 0 0.6rem 0;
+      font-size: 0.95rem;
+      margin: 0 0 0.8rem 0;
     }
 
     .member-interests {
-      font-size: 0.9rem;
+      font-size: 0.93rem;
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .pillar-card {
@@ -885,12 +885,12 @@
       <h2>CATALYST Team</h2>
 
       <h3 class="section-title">Principal Investigator</h3>
-      <div class="card" style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 2rem;">
+      <div class="member-card">
         <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
-        <div style="flex: 1; min-width: 280px;">
-          <h3 style="margin: 0;">Dr. Lexi Hwang</h3>
-          <p style="color: #666; margin: 0.2rem 0 0.8rem 0;"><strong>Lab Director & Principal Investigator</strong></p>
-          <p><strong>Research Interests:</strong> Innovative and inclusive STEM education, evidence-based instructional practices, computational simulations, AI, and emerging technologies in learning environments.</p>
+        <div class="member-info">
+          <h4>Dr. Lexi Hwang</h4>
+          <div class="member-title"><strong>Lab Director & Principal Investigator</strong> | Associate Professor, California State University, Los Angeles</div>
+          <p class="member-interests">Dr. Lexi Hwang is an Associate Professor at California State University, Los Angeles and the founder and director of the CATALYST Lab. She earned her Ph.D. in Special Education from The Pennsylvania State University, with interdisciplinary training in mathematics education, learning difficulties, and educational statistics. Her research focuses on innovative and inclusive STEM education, evidence-based instructional practices, and interdisciplinary approaches to improving STEM teaching and learning. Her current work also explores the integration of computational simulations, AI, and emerging technologies to enhance STEM learning experiences. As Principal Investigator of federally and institutionally funded projects, Dr. Hwang leads collaborative research and student training initiatives that bridge education, science, and engineering to advance STEM learning and broaden participation.</p>
         </div>
       </div>
 
@@ -900,15 +900,15 @@
           <img src="K_Hay_headshot.png" alt="Kyle Hay" class="headshot-img" onerror="this.style.display='none'">
           <div class="member-info">
             <h4>Kyle Hay</h4>
-            <div class="member-title"><strong>Ph.D. Candidate</strong></div>
-            <p class="member-interests"><strong>Research Interests:</strong> Cognitive control and neurodiverse teenagers' executive function abilities, and how those intersect with mathematics and learning disabilities to impact students in the classroom.</p>
+            <div class="member-title"><strong>Ph.D. Candidate</strong> | Joint Ph.D. Program, California State University, Los Angeles & University of California, Los Angeles (UCLA)</div>
+            <p class="member-interests">Kyle's research interests include cognitive control and neurodiverse teenagers' executive function abilities, and how those intersect with mathematics and learning disabilities to impact students in the classroom. Before entering the doctoral program, Kyle worked as a special education teacher in Los Angeles.</p>
           </div>
         </div>
 
         <div class="member-card">
           <div class="member-info">
             <h4>Ya-Hsuan “Ashley” Huang</h4>
-            <div class="member-title"><strong>Ph.D. Candidate</strong> | e-FARMS Research Fellow</div>
+            <div class="member-title"><strong>Ph.D. Candidate</strong> | e-FARMS Research Fellow, California State University, Los Angeles</div>
             <p class="member-interests"><strong>Research Interests:</strong> </p>
           </div>
         </div>
@@ -919,7 +919,7 @@
         <div class="member-card">
           <div class="member-info">
             <h4>Priyanshu Luhar</h4>
-            <div class="member-title"><strong>Undergraduate Student in Computer Science</strong> | California State University, Bakersfield</div>
+            <div class="member-title"><strong>Undergraduate Student Researcher in Computer Science</strong> | California State University, Bakersfield</div>
             <p class="member-interests"><strong>Research Interests:</strong> Molecular dynamics simulations, AI in education, and web development.</p>
           </div>
         </div>
@@ -953,26 +953,54 @@
         </div>
         <div class="project-main-content">
           <div id="space-overview" class="sub-section active card">
-            <span class="project-tag tag-active">Active (2023–2026)</span>
-            <h3>Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM</h3>
+            <span class="project-tag tag-active">Active (2023–2025; No-Cost Extension through 2027)</span>
+            <h3>Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM (SPACE)</h3>
             <p class="project-single-line"><strong>Project / Award Number:</strong> NSF Award #s 2247282 and 2247283</p>
             <p class="project-single-line"><strong>Funding Agency:</strong> National Science Foundation (NSF) HSI Improving Undergraduate STEM</p>
-            <p class="project-single-line"><strong>Award Amount:</strong> $300,000</p>
+            <hr style="border: none; border-top: 1px solid #eee; margin: 1rem 0;">
+            <p>The SPACE program is part of the project entitled, “Simulation-Based Pedagogical Approach in Chemistry Education for All Students to Succeed in STEM (SPACE)”, funded by National Science Foundation, award #s: 2247282 and 2247283.</p>
+            <p>The program will support the advancement of fundamental understanding of chemical reactions and its application in solving advanced science problems by using training in computational modeling and simulation skills for undergraduate students in engineering majors.</p>
+            <p>The program aims to tap into students’ funds of science identity as an asset-based pedagogical tool and incorporate evidence-based learning strategies not only to provide intensive learning support but to create a learning space where students can affirm and/or develop their science identity.</p>
           </div>
-          <div id="space-team" class="sub-section card">
-            <h3>Project Team & Affiliations</h3>
-            <ul class="member-list">
-              <li><strong>Dr. Lexi Hwang</strong> (Principal Investigator; PI): Associate Professor, College of Education, California State University, Los Angeles</li>
-              <li><strong>Dr. Jeffrey Santner</strong> (Co-PI): Associate Professor, Department of Mechanical Engineering, California State University, Los Angeles</li>
-              <li><strong>Dr. Leo Hong</strong> (Collaborative PI): Assistant Professor, Department of Mechanical Engineering, Loyola Marymount University</li>
-            </ul>
-            <h4 style="margin-top: 1.2rem; margin-bottom: 0.4rem;">Student Researchers</h4>
-            <ul class="member-list">
-              <li><strong>Priyanshu Luhar</strong> – Undergraduate Student Researcher</li>
-              <li><strong>Arpit Vaishya</strong> – Lab Alumni</li>
-              <li><strong>Marlen</strong> – Lab Alumni</li>
-            </ul>
+          
+          <div id="space-team" class="sub-section">
+            <h3 style="margin-top:0;">Faculty Leads & Principal Investigators</h3>
+            
+            <div class="member-card">
+              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+              <div class="member-info">
+                <h4>Dr. Lexi Hwang</h4>
+                <div class="member-title"><strong>Principal Investigator (PI)</strong> | California State University, Los Angeles</div>
+                <p class="member-interests">Associate Professor, College of Education</p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Dr. Leo Hong</h4>
+                <div class="member-title"><strong>Co-Lead Principal Investigator (Co-Lead PI)</strong> | Loyola Marymount University</div>
+                <p class="member-interests">Assistant Professor, Department of Mechanical Engineering</p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <img src="JSantner headshot.png" alt="Dr. Jeffrey Santner" class="headshot-img" onerror="this.style.display='none'">
+              <div class="member-info">
+                <h4>Dr. Jeffrey Santner</h4>
+                <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | California State University, Los Angeles</div>
+                <p class="member-interests">Associate Professor, Department of Mechanical Engineering</p>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;">Student Researchers</h4>
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Priyanshu Luhar</h4>
+                <div class="member-title"><strong>Student Researcher</strong></div>
+              </div>
+            </div>
           </div>
+
           <div id="space-outcomes" class="sub-section card">
             <h3>Activities & Outcomes</h3>
             <p class="project-single-line">Details on simulation modules, curriculum integration, and student learning outcomes will be updated here.</p>
@@ -1003,15 +1031,119 @@
             <p class="project-single-line"><strong>Funding Agency:</strong> U.S. Department of Agriculture (USDA) National Institute of Food and Agriculture (NIFA) HSI Education Program</p>
             <p class="project-single-line"><strong>Award Amount:</strong> $1,000,000</p>
           </div>
-          <div id="efarms-team" class="sub-section card">
-            <h3>Project Team & Affiliations</h3>
-            <ul class="member-list">
-              <li><strong>Dr. Lexi Hwang</strong> (Program Director; PD): Associate Professor, College of Education, California State University, Los Angeles</li>
-              <li><strong>Dr. Changqi Liu</strong> (Co-PD): Professor, School of Exercise and Nutritional Sciences, San Diego State University</li>
-              <li><strong>Dr. Jing Zhao</strong> (Co-PD): Associate Professor, School of Exercise and Nutritional Sciences, San Diego State University</li>
-              <li><strong>Dr. Leo Hong</strong> (Co-PD): Assistant Professor, Department of Mechanical Engineering, Loyola Marymount University</li>
-            </ul>
+
+          <div id="efarms-team" class="sub-section">
+            <h3 style="margin-top: 0;">Faculty Leads</h3>
+            
+            <div class="member-card">
+              <img src="LHwang headshot.png" alt="Dr. Lexi Hwang" class="headshot-img" onerror="this.style.display='none'">
+              <div class="member-info">
+                <h4>Dr. Lexi Hwang</h4>
+                <div class="member-title"><strong>Principal Investigator (PI)</strong> | California State University, Los Angeles</div>
+                <p class="member-interests">Associate Professor, College of Education</p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Dr. Leo Hong</h4>
+                <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | Loyola Marymount University</div>
+                <p class="member-interests">Assistant Professor, Department of Mechanical Engineering</p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Dr. Changqi Liu</h4>
+                <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | San Diego State University</div>
+                <p class="member-interests">Professor, School of Exercise and Nutritional Sciences</p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Dr. Jing Zhao</h4>
+                <div class="member-title"><strong>Co-Principal Investigator (Co-PI)</strong> | San Diego State University</div>
+                <p class="member-interests">Associate Professor, School of Exercise and Nutritional Sciences</p>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 1.5rem;">Student Fellows & Researchers</h3>
+            
+            <!-- Student Placeholders (1 through 8) -->
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 1</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 2</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 3</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 4</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 5</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 6</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 7</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
+
+            <div class="member-card">
+              <div class="member-info">
+                <h4>Student Fellow Placeholder 8</h4>
+                <div class="member-title"><strong>e-FARMS Research Fellow</strong> | Institution</div>
+                <p class="member-interests"><strong>Research Interests:</strong> </p>
+                <p class="member-interests" style="margin-top: 0.3rem;"><strong>Contact:</strong> </p>
+              </div>
+            </div>
           </div>
+
           <div id="efarms-outcomes" class="sub-section card">
             <h3>Activities & Outcomes</h3>
             <p class="project-single-line">Detailed research progress, student research opportunities, and workshops for e-FARMS.</p>
